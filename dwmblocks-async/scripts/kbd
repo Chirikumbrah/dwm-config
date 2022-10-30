@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+LAYOUT="$(xkblayout-state print %s | awk '{print $0}')"
+echo "^c#50fa7b^ $LAYOUT"

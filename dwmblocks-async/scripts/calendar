@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DATEFMT=${TIMEFMT:-"+%a %d %b"}
+FULLDATEFMT=${FULLDATEFMT:-"+%A %d %B %Y"}
+
+
+case $BUTTON in
+	1) notify-send "CPU usage" "$(ps axch -o cmd,%cpu --sort=-%cpu | head)" ;;
+	3) alacritty -e htop ;;
+esac
+
+echo "^c#f1fa8c^ $(date "$DATEFMT" | awk '{ print tolower($0) }')"
