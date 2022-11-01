@@ -219,7 +219,7 @@ static const BarRule barrules[] = {
 	{  0,        0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
 	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status2d,           draw_status2d,          click_statuscmd,         NULL,                    "status2d" },
-    { -1,        0,     BAR_ALIGN_NONE,   width_fancybar,           draw_fancybar,          click_fancybar,          NULL,                    "fancybar" },
+  { -1,        0,     BAR_ALIGN_NONE,   width_fancybar,           draw_fancybar,          click_fancybar,          NULL,                    "fancybar" },
 };
 
 /* layout(s) */
@@ -421,7 +421,7 @@ static const Key keys[] = {
   // changing keyboard layout
 	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("xkb-switch -n                         && pkill -RTMIN+5 dwmblocks") },
 	{ ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("xkb-switch -n                         && pkill -RTMIN+5 dwmblocks") },
-	{ 0,                     XK_ISO_Next_Group,             	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
+	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
 
   // take screenshot
   { 0,                     XK_Print,                  spawn,	SHCMD("$HOME/.scripts/take_screenshot.sh partial")                         },
