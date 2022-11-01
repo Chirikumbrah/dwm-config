@@ -278,8 +278,8 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_j,          focusstack,             {.i = +1 } },
 	{ MODKEY,                         XK_k,          focusstack,             {.i = -1 } },
 
-    // moving windows
-    { MODKEY|ShiftMask,               XK_j,          movestack,              {.i = +1 } },
+  // moving windows
+  { MODKEY|ShiftMask,               XK_j,          movestack,              {.i = +1 } },
  	{ MODKEY|ShiftMask,               XK_k,          movestack,              {.i = -1 } },
 
 	{ Mod1Mask,                       XK_7,          explace,                {.ui = EX_NW }},   /* XK_KP_Home,  */
@@ -360,7 +360,7 @@ static const Key keys[] = {
 	{ Mod1Mask|ControlMask,           XK_p,          setlayout,              {0} },
 
     // toggle fullscreen
-  	{ MODKEY,                         XK_f,          fullscreen,             {0} },
+  { MODKEY,                         XK_f,          fullscreen,             {0} },
 
     // toggle sticky mode
 	{ MODKEY,                         XK_s,          togglesticky,           {0} },
@@ -400,31 +400,32 @@ static const Key keys[] = {
 	{ Mod1Mask,             XK_x,                       spawn,	SHCMD("$HOME/.scripts/dmenu_scripts.sh powermenu")                             },
 	{ Mod1Mask,             XK_space,                   spawn,	SHCMD("$HOME/.scripts/dmenu_scripts.sh clipmenu")                              },
 
-    // console apps
-    { MODKEY|ShiftMask,     XK_r,                       spawn,	SHCMD("alacritty --class ranger,ranger -e ranger")                         },
-    { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
+  // console apps
+  { MODKEY|ShiftMask,     XK_r,                       spawn,	SHCMD("alacritty --class ranger,ranger -e ranger")                         },
+  { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
 
-    // gui apps
-    { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("chromium")                                                          },
-    { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD("telegram-desktop")                                                  },
+  // gui apps
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("chromium")                                                          },
+  { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD("telegram-desktop")                                                  },
 
-    // volume controls
-	{0,                     XF86XK_AudioRaiseVolume,	spawn,	SHCMD("$HOME/.scripts/control_volume.sh up   && pkill -RTMIN+1 dwmblocks") },
-	{0,                     XF86XK_AudioLowerVolume,	spawn,	SHCMD("$HOME/.scripts/control_volume.sh down && pkill -RTMIN+1 dwmblocks") },
-	{0,                     XF86XK_AudioMute,      	    spawn,	SHCMD("$HOME/.scripts/control_volume.sh mute && pkill -RTMIN+1 dwmblocks") },
-	{0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD("$HOME/.scripts/control_volume.sh mic  && pkill -RTMIN+2 dwmblocks") },
+  // volume controls
+	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD("$HOME/.scripts/control_volume.sh up   && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD("$HOME/.scripts/control_volume.sh down && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioMute,      	  spawn,	SHCMD("$HOME/.scripts/control_volume.sh mute && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD("$HOME/.scripts/control_volume.sh mic  && pkill -RTMIN+2 dwmblocks") },
 
-    // brightness controls
-    {0,                     XF86XK_MonBrightnessUp,     spawn,	SHCMD("$HOME/.scripts/get_brightness.sh      && pkill -RTMIN+3 dwmblocks") },
-	{0,                     XF86XK_MonBrightnessDown,  	spawn,	SHCMD("$HOME/.scripts/get_brightness.sh      && pkill -RTMIN+3 dwmblocks") },
+  // brightness controls
+  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD("$HOME/.scripts/get_brightness.sh      && pkill -RTMIN+3 dwmblocks") },
+  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD("$HOME/.scripts/get_brightness.sh      && pkill -RTMIN+3 dwmblocks") },
 
-    // changing keyboard layout
-	{ Mod1Mask,             XK_Shift_L,                	spawn,	SHCMD("xkb-switch -n                         && pkill -RTMIN+5 dwmblocks") },
-	{ ShiftMask,            XK_Alt_L,                	spawn,	SHCMD("xkb-switch -n                         && pkill -RTMIN+5 dwmblocks") },
+  // changing keyboard layout
+	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("xkb-switch -n                         && pkill -RTMIN+5 dwmblocks") },
+	{ ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("xkb-switch -n                         && pkill -RTMIN+5 dwmblocks") },
+	{ 0,                     XK_ISO_Next_Group,             	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
 
-    // take screenshot
-    { 0,                    XK_Print,                   spawn,	SHCMD("$HOME/.scripts/take_screenshot.sh partial")                         },
-    { MODKEY,               XK_Print,                   spawn,	SHCMD("$HOME/.scripts/take_screenshot.sh full")                            },
+  // take screenshot
+  { 0,                     XK_Print,                  spawn,	SHCMD("$HOME/.scripts/take_screenshot.sh partial")                         },
+  { MODKEY,                XK_Print,                  spawn,	SHCMD("$HOME/.scripts/take_screenshot.sh full")                            },
 };
 
 
