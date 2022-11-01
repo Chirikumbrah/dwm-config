@@ -419,8 +419,8 @@ static const Key keys[] = {
   { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD("$HOME/.scripts/get_brightness.sh      && pkill -RTMIN+3 dwmblocks") },
 
   // changing keyboard layout
-	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("xkb-switch -n                         && pkill -RTMIN+5 dwmblocks") },
-	{ ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("xkb-switch -n                         && pkill -RTMIN+5 dwmblocks") },
+	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
+	{ ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
 	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
 
   // take screenshot
