@@ -421,7 +421,7 @@ static const Key keys[] = {
   // changing keyboard layout
 	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
 	{ ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
-	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
+	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && pkill -RTMIN+5 dwmblocks"                                         ) },
 
   // take screenshot
   { 0,                     XK_Print,                  spawn,	SHCMD("$HOME/.scripts/take_screenshot.sh partial")                         },
