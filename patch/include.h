@@ -3,6 +3,7 @@
 #include "bar_tagicons.h"
 #include "bar.h"
 
+#include "bar_dwmblocks.h"
 #include "bar_ltsymbol.h"
 #include "bar_status.h"
 #include "bar_status2d.h"
@@ -11,7 +12,9 @@
 #include "bar_tagpreview.h"
 #include "bar_wintitle.h"
 #include "bar_fancybar.h"
+#include "bar_awesomebar.h"
 #include "bar_systray.h"
+#include "bar_wintitleactions.h"
 
 /* Other patches */
 #include "attachx.h"

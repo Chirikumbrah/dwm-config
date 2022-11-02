@@ -4,9 +4,10 @@ DATEFMT=${TIMEFMT:-"+%a %d %b"}
 FULLDATEFMT=${FULLDATEFMT:-"+%A %d %B %Y"}
 
 
-case $BUTTON in
-	1) notify-send "CPU usage" "$(ps axch -o cmd,%cpu --sort=-%cpu | head)" ;;
-	3) alacritty -e htop ;;
-esac
+case $BLOCK_BUTTON in 
+	1) echo "^c#f1fa8c^ $(date "$FULLDATEFMT" | awk '{ print tolower($0) }')" ;;
+	2) notify-send "Calendar" ;; 
+	3) notify-send "Calendar" ;; 
+esac 
 
 echo "^c#f1fa8c^ $(date "$DATEFMT" | awk '{ print tolower($0) }')"

@@ -11,7 +11,7 @@ const Block blocks[] = {
 	BLOCK("~/.config/dwm/dwmblocks-async/scripts/disk -r",      10,    0),
 	BLOCK("~/.config/dwm/dwmblocks-async/scripts/disk -u",      10,    0),
 	BLOCK("~/.config/dwm/dwmblocks-async/scripts/bat_dwm",      5,     0),
-	BLOCK("~/.config/dwm/dwmblocks-async/scripts/calendar",     10,    0),
+	BLOCK("~/.config/dwm/dwmblocks-async/scripts/calendar",     10,    6),
 	BLOCK("~/.config/dwm/dwmblocks-async/scripts/time",         5,     0),
 	BLOCK("~/.config/dwm/dwmblocks-async/scripts/kbd",          0,     5),
 };
