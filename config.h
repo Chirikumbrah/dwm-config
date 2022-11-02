@@ -1,4 +1,5 @@
 #include <X11/XF86keysym.h>
+#define $CLICKABLE_BLOCKS
 
 /* See LICENSE file for copyright and license details. */
 
@@ -435,6 +436,7 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 6 } },
 	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 6 } },
 	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 6 } },
+  { ClkStatusText,        ShiftMask,           Button3,        spawn,          SHCMD("alacritty -e nvim ~/.config/dwm/dwmblocks-async/config.h") },
 	/* placemouse options, choose which feels more natural:
 	 *    0 - tiled position is relative to mouse cursor
 	 *    1 - tiled postiion is relative to window center
