@@ -183,21 +183,40 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
     
-    // scratchpads
+  // scratchpads
 	RULE(.class = "spterm",    .tags = SPTAG(0), .isfloating = 1)
 	RULE(.class = "KeePassXC", .tags = SPTAG(1), .isfloating = 1)
 	RULE(.class = "Audacious", .tags = SPTAG(2), .isfloating = 1)
 	RULE(.class = "bc",        .tags = SPTAG(3), .isfloating = 1)
 	RULE(.class = "calcurse",  .tags = SPTAG(4), .isfloating = 1)
 
-	RULE(.class = "Chromium", .tags = 1)
-	RULE(.class = "Firefox", .tags = 1)
-	RULE(.class = "Alacritty", .tags = 1 << 1)
-	RULE(.class = "ranger", .tags = 1 << 2)
-	RULE(.class = "Telegram", .tags = 1 << 3)
-	RULE(.class = "guitarpro7.exe", .tags = 1 << 5)
-	RULE(.class = "Skype", .tags = 1 << 7)
-	RULE(.class = "htop", .tags = 1 << 8)
+  // FIRST
+	RULE(.class = "Chromium",                    .tags = 1)
+	RULE(.class = "Firefox",                     .tags = 1)
+  // SECOND
+	RULE(.class = "Alacritty",                   .tags = 1 << 1)
+  // THIRD
+	RULE(.class = "ranger",                      .tags = 1 << 2)
+  // FOURTH
+	RULE(.class = "Telegram",                    .tags = 1 << 3)
+	RULE(.class = "Slack",                       .tags = 1 << 3)
+  // FIFTH
+	RULE(.class = "Code",                        .tags = 1 << 4)
+	RULE(.class = "jetbrains-pycharm-ce",        .tags = 1 << 4)
+  // SIXTH
+	RULE(.class = "guitarpro7.exe",              .tags = 1 << 5)
+  // SEVENTH
+	RULE(.class = "Picard",                      .tags = 1 << 6)
+	RULE(.class = "Gtick",                       .tags = 1 << 6)
+	RULE(.class = "Lingot",                      .tags = 1 << 6)
+	RULE(.class = "DesktopEditors",              .tags = 1 << 6)
+	RULE(.class = "Rustdesk",                    .tags = 1 << 6)
+  // EIGHTH
+	RULE(.class = "discord",                     .tags = 1 << 7)
+	RULE(.class = "Skype",                       .tags = 1 << 7)
+	RULE(.class = "zoom",                        .tags = 1 << 7)
+  // NINTH
+	RULE(.class = "htop",                        .tags = 1 << 8)
 };
 
 
