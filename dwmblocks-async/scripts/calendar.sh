@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DATEFMT=${TIMEFMT:-"+%a %d %b"}
 FULLDATEFMT=${FULLDATEFMT:-"+%A %d %B %Y"}
