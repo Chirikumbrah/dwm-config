@@ -26,7 +26,7 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = { "DejaVuSansMono:size=10", "FontAwesome5Free:style=Solid:size=10:antialias:true" };
+static const char *fonts[]               = { "DejaVuSansMono:size=10", "FontAwesome5Brands:style=Solid:size=10:antialias:true", "FontAwesome5Free:style=Solid:size=10:antialias:true" };
 static const char dmenufont[]            = "DejaVuSansMono:size=10";
 
 // dracula colors

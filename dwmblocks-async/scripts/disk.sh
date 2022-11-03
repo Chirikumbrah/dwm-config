@@ -1,15 +1,20 @@
 #!/bin/bash
 
+ORANGE="^c#ffb86c^"
+PURPLE="^c#bd93f9^"
+ROOT_SIGN="/"
+USER_SIGN="~"
+
 case $1 in
 
     -u)
         DIR=/home/yr/yrData
-        LABEL="^c#bd93f9^~"
+        LABEL="$PURPLE$USER_SIGN"
         ;;
 
     -r)
         DIR=/
-        LABEL="^c#ffb86c^/"
+        LABEL="$ORANGE$ROOT_SIGN"
         ;;
 esac
 

@@ -2,6 +2,8 @@
 
 STEP_SIZE=${STEP_SIZE:-5}
 USE_SUDO=${USE_SUDO:-0}
+COLOR="^c#f1fa8c^"
+ICON=""
 
 # whether to use `sudo` for changing the brightness (requires a NOPASSWD rule)
 if [[ "$USE_SUDO" == "0" ]] ; then
@@ -18,4 +20,4 @@ esac
 
 
 BRIGHTNESS=$(xbacklight -get | cut -f1 -d'.')
-echo "^c#f1fa8c^ ${BRIGHTNESS}%"
+echo "$COLOR$ICON ${BRIGHTNESS}%"

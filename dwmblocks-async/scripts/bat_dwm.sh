@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# BATTERY=0
-# BATTERY_STATE=$(echo "${BATTERY_INFO}" | upower -i "$(upower -e | grep 'BAT')" | grep -E "state|to\ full" | awk '{print $2}')
-# BATTERY_POWER=$(echo "${BATTERY_INFO}" | upower -i "$(upower -e | grep 'BAT')" | grep -E "percentage" | awk '{print $2}' | tr -d '%')
+COLOR="^c#f1fa8c^"
 
 BATTERY_STATE=$(upower -i "$(upower -e | grep 'BAT')" | grep -E "state|to full" | awk '{print $2}')
 BATTERY_POWER=$(upower -i "$(upower -e | grep 'BAT')" | grep -E "percentage" | awk '{print $2}' | tr -d '%')
@@ -32,4 +30,4 @@ else
     BAT=" ${BATTERY_POWER}%"
 fi
 
-echo "^c#FF92DF^${BAT}"
+echo "$COLOR$BAT"
