@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COLOR="^c#f1fa8c^"
+COLOR="^c#FF92DF^"
 
 BATTERY_STATE=$(upower -i "$(upower -e | grep 'BAT')" | grep -E "state|to full" | awk '{print $2}')
 BATTERY_POWER=$(upower -i "$(upower -e | grep 'BAT')" | grep -E "percentage" | awk '{print $2}' | tr -d '%')

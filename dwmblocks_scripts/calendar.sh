@@ -2,7 +2,7 @@
 
 DATEFMT=${TIMEFMT:-"+%a %d %b"}
 FULLDATEFMT=${FULLDATEFMT:-"+%A %d %B %Y"}
-COLOR="^c#8be9fd^"
+COLOR="^c#f1fa8c^"
 ICON=""
 
 case $BLOCK_BUTTON in 

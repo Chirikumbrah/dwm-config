@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CAPS=$(xset -q | sed -n 's/^.*Caps Lock:\s*\(\S*\).*$/\1/p')
-COLOR="^c#ffb86c^"
+COLOR="^c#50fa7b^" 
 ICON=""
 
 if [[ "$CAPS" = on ]]; then

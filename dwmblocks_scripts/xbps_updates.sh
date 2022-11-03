@@ -1,7 +1,11 @@
 #!/bin/bash
 
 ICON=""
-COLOR="^c#FF92DF^"
+COLOR="^c#ffb86c^"
 UPDATES="$(xbps-install -nuMS | wc -l)"
 
-echo "$COLOR$ICON $UPDATES"
+if [[ "$UPDATES" -eq 0 ]]; then
+    echo ""
+else
+    echo "$COLOR$ICON $UPDATES"
+fi
