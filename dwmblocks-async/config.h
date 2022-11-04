@@ -4,9 +4,9 @@
 #define scriptDir "~/.config/dwm/dwmblocks_scripts/"
 
 const Block blocks[] = {
-	BLOCK(scriptDir "xbps_updates.sh",      333,     0),
-	BLOCK(scriptDir "vol_dwm.sh",           0,       1),
-	BLOCK(scriptDir "mic_dwm.sh",           0,       2),
+	// BLOCK(scriptDir "xbps_updates.sh",      333,     0),
+	BLOCK(scriptDir "vol_dwm.sh",           10,      1),
+	BLOCK(scriptDir "mic_dwm.sh",           10,      2),
 	BLOCK(scriptDir "backlight.sh",         0,       3),
 	BLOCK(scriptDir "cputemp.sh",           5,       0),
 	BLOCK(scriptDir "ram.sh",               5,       0),
