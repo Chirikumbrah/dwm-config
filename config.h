@@ -1,5 +1,4 @@
 #include <X11/XF86keysym.h>
-#define $CLICKABLE_BLOCKS
 
 /* See LICENSE file for copyright and license details. */
 
@@ -171,6 +170,7 @@ static char *tagicons[][NUMTAGS] =
  * Refer to the Rule struct definition for the list of available fields depending on
  * the patches you enable.
  */
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -419,8 +419,8 @@ static const Key keys[] = {
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
 
   // gui apps
-  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("chromium")                                                          },
-  { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD("telegram-desktop")                                                  },
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh chromium")                                   },
+  { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh telegram-desktop")                           },
 
   // volume controls
 	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD("$HOME/.scripts/control_volume.sh up   && pkill -RTMIN+1 dwmblocks") },
