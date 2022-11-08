@@ -203,6 +203,7 @@ static const Rule rules[] = {
   // FIFTH
 	RULE(.class = "Code",                        .tags = 1 << 4)
 	RULE(.class = "jetbrains-pycharm-ce",        .tags = 1 << 4)
+	RULE(.class = "Lens",                        .tags = 1 << 4)
   // SIXTH
 	RULE(.class = "guitarpro7.exe",              .tags = 1 << 5)
   // SEVENTH
