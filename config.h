@@ -50,13 +50,13 @@ static char selbordercolor[]             = "#50fa7b";
 static char selfloatcolor[]              = "#50fa7b";
 
 // title
-static char titlenormfgcolor[]           = "#f8f8f2";
+static char titlenormfgcolor[]           = "#bd93f9";
 static char titlenormbgcolor[]           = "#282a36";
 static char titlenormbordercolor[]       = "#bd93f9";
 static char titlenormfloatcolor[]        = "#bd93f9";
 
-static char titleselfgcolor[]            = "#282a36";
-static char titleselbgcolor[]            = "#bd93f9";
+static char titleselfgcolor[]            = "#50fa7b";
+static char titleselbgcolor[]            = "#282a36";
 static char titleselbordercolor[]        = "#f1fa8c";
 static char titleselfloatcolor[]         = "#bd93f9";
 
@@ -244,19 +244,19 @@ static const BarRule barrules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const float mfact          = 0.55; /* factor of master area size [0.05..0.95] */
+static const int   nmaster        = 1;    /* number of clients in master area */
+static const int   resizehints    = 0;    /* 1 means respect size hints in tiled resizals */
+static const int   lockfullscreen = 1;    /* 1 will force focus on the fullscreen window */
 
 
 
 static const Layout layouts[] = {
-	/* symbol    arrange function */
-	{ "tile",    tile },    /* first entry is default */
-	{ "float",   NULL },    /* no layout function means floating behavior */
-	{ "mono",    monocle },
-	{ NULL,      NULL },
+	/* symbol   arrange function */
+	{ "[T]",    tile },    /* first entry is default */
+	{ "[F]",    NULL },    /* no layout function means floating behavior */
+	{ "[M]",    monocle },
+	{ NULL,     NULL },
 };
 
 
