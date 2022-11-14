@@ -72,10 +72,10 @@ static char tagsselbordercolor[]         = "#50fa7b";
 static char tagsselfloatcolor[]          = "#50fa7b";
 
 // hidden
-static char hidnormfgcolor[]             = "#f8f8f2";
-static char hidselfgcolor[]              = "#282a36";
+static char hidnormfgcolor[]             = "#6272a4";
 static char hidnormbgcolor[]             = "#282a36";
-static char hidselbgcolor[]              = "#bd93f9";
+static char hidselfgcolor[]              = "#bd93f9";
+static char hidselbgcolor[]              = "#282a36";
 
 // urgent
 static char urgfgcolor[]                 = "#282a36";
