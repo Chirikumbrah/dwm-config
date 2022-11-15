@@ -394,8 +394,12 @@ static const Key keys[] = {
 
 	{ MODKEY,                         XK_0,          view,                   {.ui = ~SPTAGMASK } },
 	{ MODKEY|ShiftMask,               XK_0,          tag,                    {.ui = ~SPTAGMASK } },
+
+    // switching between monitors
 	{ MODKEY,                         XK_comma,      focusmon,               {.i = -1 } },
 	{ MODKEY,                         XK_period,     focusmon,               {.i = +1 } },
+
+    // moving window between monitors
 	{ MODKEY|ShiftMask,               XK_comma,      tagmon,                 {.i = -1 } },
 	{ MODKEY|ShiftMask,               XK_period,     tagmon,                 {.i = +1 } },
 
