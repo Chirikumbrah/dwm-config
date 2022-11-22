@@ -210,7 +210,7 @@ static const Rule rules[] = {
 	RULE(.class = "Gtick",                       .tags = 1 << 5)
 	RULE(.class = "Lingot",                      .tags = 1 << 5)
   // SEVENTH
-	RULE(.class = "libreoffice-impress",         .tags = 1 << 6)
+	RULE(.class = "Soffice",                     .tags = 1 << 6)
 	RULE(.class = "kolourpaint",                 .tags = 1 << 6)
 	RULE(.class = "DesktopEditors",              .tags = 1 << 6)
 	RULE(.class = "Rustdesk",                    .tags = 1 << 6)
