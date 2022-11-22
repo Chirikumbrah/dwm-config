@@ -206,10 +206,12 @@ static const Rule rules[] = {
 	RULE(.class = "Lens",                        .tags = 1 << 4)
   // SIXTH
 	RULE(.class = "guitarpro7.exe",              .tags = 1 << 5)
+	RULE(.class = "Picard",                      .tags = 1 << 5)
+	RULE(.class = "Gtick",                       .tags = 1 << 5)
+	RULE(.class = "Lingot",                      .tags = 1 << 5)
   // SEVENTH
-	RULE(.class = "Picard",                      .tags = 1 << 6)
-	RULE(.class = "Gtick",                       .tags = 1 << 6)
-	RULE(.class = "Lingot",                      .tags = 1 << 6)
+	RULE(.class = "libreoffice-impress",         .tags = 1 << 6)
+	RULE(.class = "kolourpaint",                 .tags = 1 << 6)
 	RULE(.class = "DesktopEditors",              .tags = 1 << 6)
 	RULE(.class = "Rustdesk",                    .tags = 1 << 6)
   // EIGHTH
