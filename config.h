@@ -218,6 +218,7 @@ static const Rule rules[] = {
 	RULE(.class = "discord",                     .tags = 1 << 7)
 	RULE(.class = "Skype",                       .tags = 1 << 7)
 	RULE(.class = "zoom",                        .tags = 1 << 7)
+	RULE(.class = "obs",                         .tags = 1 << 7)
   // NINTH
 	RULE(.class = "htop",                        .tags = 1 << 8)
 };
@@ -426,7 +427,7 @@ static const Key keys[] = {
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
 
   // gui apps
-  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh chromium")                                   },
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh firefox")                                   },
   { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh telegram-desktop")                           },
 
   // volume controls
