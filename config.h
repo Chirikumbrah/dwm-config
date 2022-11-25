@@ -419,17 +419,18 @@ static const Key keys[] = {
 
 
     // dmenu 
-	{ MODKEY,               XK_space,                   spawn,  SHCMD("$HOME/.scripts/dmenu_scripts.sh apps")                                  },
-	{ Mod1Mask,             XK_x,                       spawn,	SHCMD("$HOME/.scripts/dmenu_scripts.sh powermenu")                             },
-	{ Mod1Mask,             XK_space,                   spawn,	SHCMD("$HOME/.scripts/dmenu_scripts.sh clipmenu")                              },
+	{ MODKEY,               XK_space,                   spawn,  SHCMD("$HOME/.scripts/dmenu_scripts.sh apps")                              },
+	{ Mod1Mask,             XK_x,                       spawn,	SHCMD("$HOME/.scripts/dmenu_scripts.sh powermenu")                         },
+	{ Mod1Mask,             XK_space,                   spawn,	SHCMD("$HOME/.scripts/dmenu_scripts.sh clipmenu")                          },
 
   // console apps
   { MODKEY|ShiftMask,     XK_r,                       spawn,	SHCMD("alacritty --class ranger,ranger -e ranger")                         },
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
+  { MODKEY|ShiftMask,     XK_z,                       spawn,	SHCMD("zathura"                                  )                         },
 
   // gui apps
-  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh firefox")                                   },
-  { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh telegram-desktop")                           },
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh firefox")                                },
+  { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh telegram-desktop")                       },
 
   // volume controls
 	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD("$HOME/.scripts/control_volume.sh up   && pkill -RTMIN+1 dwmblocks") },
