@@ -214,6 +214,7 @@ static const Rule rules[] = {
 	RULE(.class = "kolourpaint",                 .tags = 1 << 6)
 	RULE(.class = "DesktopEditors",              .tags = 1 << 6)
 	RULE(.class = "Rustdesk",                    .tags = 1 << 6)
+	RULE(.class = "Zathura",                     .tags = 1 << 6)
   // EIGHTH
 	RULE(.class = "discord",                     .tags = 1 << 7)
 	RULE(.class = "Skype",                       .tags = 1 << 7)
