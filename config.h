@@ -429,7 +429,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,     XK_z,                       spawn,	SHCMD("zathura"                                  )                         },
 
   // gui apps
-  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh firefox")                                },
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh chromium")                                },
   { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD("$HOME/.scripts/find_app.sh telegram-desktop")                       },
 
   // volume controls
