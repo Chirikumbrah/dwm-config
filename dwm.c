@@ -671,6 +671,7 @@ cleanup(void)
 
 
 
+
 	selmon->lt[selmon->sellt] = &foo;
 	for (m = mons; m; m = m->next)
 		while (m->stack)
@@ -835,6 +836,7 @@ configurenotify(XEvent *e)
 						resizeclient(c, m->mx, m->my, m->mw, m->mh);
 				for (bar = m->bar; bar; bar = bar->next)
 					XMoveResizeWindow(dpy, bar->win, bar->bx, bar->by, bar->bw, bar->bh);
+				createpreview(m);
 			}
 			focus(NULL);
 			arrange(NULL);
@@ -1215,7 +1217,7 @@ focus(Client *c)
 			XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
 		setfocus(c);
 	} else {
-		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
+		XSetInputFocus(dpy, selmon->bar && selmon->bar->win ? selmon->bar->win : root, RevertToPointerRoot, CurrentTime);
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
 	}
 	selmon->sel = c;
@@ -2144,7 +2146,6 @@ setup(void)
 
 	updatebars();
 	updatestatus();
-	updatepreview();
 
 	/* supporting window for NetWMCheck */
 	wmcheckwin = XCreateSimpleWindow(dpy, root, 0, 0, 1, 1, 0, 0, 0);
