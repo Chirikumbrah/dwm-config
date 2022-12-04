@@ -1,7 +1,7 @@
 #define CMDLENGTH 50
 #define DELIMITER "^c#ffffff^ | "
 #define CLICKABLE_BLOCKS
-#define scriptDir "~/.config/dwm/dwmblocks_scripts/"
+#define scriptDir "$HOME/.scripts/dwmblocks/"
 
 const Block blocks[] = {
 	// BLOCK(scriptDir "xbps_updates.sh",      333,     0),
