@@ -193,6 +193,7 @@ static const Rule rules[] = {
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
 	RULE(.class = "Firefox",                     .tags = 1)
+	RULE(.class = "Vieb",                        .tags = 1)
   // SECOND
 	RULE(.class = "Alacritty",                   .tags = 1 << 1)
   // THIRD
