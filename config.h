@@ -190,8 +190,12 @@ static const Rule rules[] = {
 	RULE(.class = "bc",        .tags = SPTAG(3), .isfloating = 1)
 	RULE(.class = "calcurse",  .tags = SPTAG(4), .isfloating = 1)
 
+  // floating windows
+	RULE(.class = "feh",       .isfloating = 1)
+
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
+	RULE(.class = "qutebrowser",                 .tags = 1)
 	RULE(.class = "Firefox",                     .tags = 1)
 	RULE(.class = "Vieb",                        .tags = 1)
   // SECOND
@@ -432,7 +436,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,     XK_z,                       spawn,	SHCMD("zathura"                                  )                         },
 
   // gui apps
-  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find_app.sh chromium")                               },
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find_app.sh qutebrowser")                            },
   { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find_app.sh telegram-desktop")                       },
 
   // volume controls
