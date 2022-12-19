@@ -105,7 +105,7 @@ static char *colors[][ColCount] = {
 const char *spcmd1[] = {"alacritty", "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
 const char *spcmd2[] = {"keepassxc", NULL };
 const char *spcmd3[] = {"audacious", NULL };
-const char *spcmd4[] = {"alacritty", "--class", "bc,bc",             "-e", "bc",       NULL };
+const char *spcmd4[] = {"galculator", NULL };
 const char *spcmd5[] = {"alacritty", "--class", "calcurse,calcurse", "-e", "calcurse", NULL };
 
 static Sp scratchpads[] = {
@@ -113,7 +113,7 @@ static Sp scratchpads[] = {
    {"spterm",       spcmd1},
    {"keepassxc",    spcmd2},
    {"audacious",    spcmd3},
-   {"bc",           spcmd4},
+   {"galculator",   spcmd4},
    {"calcurse",     spcmd5},
 };
 
@@ -184,11 +184,11 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
     
   // scratchpads
-	RULE(.class = "spterm",    .tags = SPTAG(0), .isfloating = 1)
-	RULE(.class = "KeePassXC", .tags = SPTAG(1), .isfloating = 1)
-	RULE(.class = "Audacious", .tags = SPTAG(2), .isfloating = 1)
-	RULE(.class = "bc",        .tags = SPTAG(3), .isfloating = 1)
-	RULE(.class = "calcurse",  .tags = SPTAG(4), .isfloating = 1)
+	RULE(.class = "spterm",     .tags = SPTAG(0), .isfloating = 1)
+	RULE(.class = "KeePassXC",  .tags = SPTAG(1), .isfloating = 1)
+	RULE(.class = "Audacious",  .tags = SPTAG(2), .isfloating = 1)
+	RULE(.class = "Galculator", .tags = SPTAG(3), .isfloating = 1)
+	RULE(.class = "calcurse",   .tags = SPTAG(4), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",       .isfloating = 1)
