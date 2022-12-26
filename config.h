@@ -192,6 +192,8 @@ static const Rule rules[] = {
 
   // floating windows
 	RULE(.class = "feh",       .isfloating = 1)
+	RULE(.class = "mpv",       .isfloating = 1)
+	RULE(.class = "ffplay",    .isfloating = 1)
 
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
