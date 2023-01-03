@@ -435,7 +435,7 @@ static const Key keys[] = {
 
   // console apps
   // { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD("alacritty --class ranger,ranger -e ranger")                       },
-  { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD("alacritty --class lf,lf -e lf")                                     },
+  // { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD("alacritty --class lf,lf -e lf")                                     },
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
   { MODKEY|ShiftMask,     XK_z,                       spawn,	SHCMD("zathura"                                  )                         },
 
