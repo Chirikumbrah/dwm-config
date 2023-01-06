@@ -26,6 +26,8 @@
 #include "placemouse.h"
 #include "restartsig.h"
 #include "scratchpad.h"
+#include "shift.h"
+#include "shiftviewclients.h"
 #include "sticky.h"
 #include "swallow.h"
 #include "vanitygaps.h"

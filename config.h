@@ -360,7 +360,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask|ControlMask,   XK_Down,       exresize,               {.v = (int []){ -25, -25 }}},  /* XK_KP_Begin, */
 
     // cycling tags
-	{ MODKEY,                         XK_Tab,        view,                   {0} },
+	{ MODKEY,                         XK_Tab,        shiftviewclients,       { .i = +1 } },
+	{ MODKEY|ShiftMask,               XK_Tab,        shiftviewclients,       { .i = -1 } },
 
     // cycling layouts
 	{ Mod1Mask,                       XK_Tab,        cyclelayout,            {.i = +1 } },

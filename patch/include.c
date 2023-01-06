@@ -26,6 +26,8 @@
 #include "placemouse.c"
 #include "restartsig.c"
 #include "scratchpad.c"
+#include "shift.c"
+#include "shiftviewclients.c"
 #include "sticky.c"
 #include "swallow.c"
 #include "vanitygaps.c"
