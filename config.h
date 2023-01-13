@@ -202,6 +202,7 @@ static const Rule rules[] = {
 	RULE(.class = "Vieb",                        .tags = 1)
   // SECOND
 	RULE(.class = "Alacritty",                   .tags = 1 << 1)
+	RULE(.class = "st",                          .tags = 1 << 1)
   // THIRD
 	RULE(.class = "ranger",                      .tags = 1 << 2)
 	RULE(.class = "lf",                          .tags = 1 << 2)
@@ -435,8 +436,6 @@ static const Key keys[] = {
 	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "dmenu/dmenu_scripts.sh clipmenu")                           },
 
   // console apps
-  // { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD("alacritty --class ranger,ranger -e ranger")                       },
-  // { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD("alacritty --class lf,lf -e lf")                                     },
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
   { MODKEY|ShiftMask,     XK_z,                       spawn,	SHCMD("zathura"                                  )                         },
 
