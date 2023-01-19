@@ -397,14 +397,14 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_s,          togglesticky,           {0} },
 
     // floating mode for wondow
-	{ Mod1Mask,                       XK_f,          togglefloating,         {0} },
+	{ MODKEY|ControlMask,             XK_f,          togglefloating,         {0} },
 
     // scratchpads
-	{ Mod1Mask,                       XK_t,          togglescratch,          {.ui = 0 } },
-	{ Mod1Mask,                       XK_k,          togglescratch,          {.ui = 1 } },
-	{ Mod1Mask,                       XK_m,          togglescratch,          {.ui = 2 } },
-	{ Mod1Mask,                       XK_b,          togglescratch,          {.ui = 3 } },
-	{ Mod1Mask,                       XK_c,          togglescratch,          {.ui = 4 } },
+	{ MODKEY|ShiftMask,               XK_Return,     togglescratch,          {.ui = 0 } },
+	{ MODKEY|ShiftMask,               XK_k,          togglescratch,          {.ui = 1 } },
+	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2 } },
+	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 3 } },
+	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } },
 	{ MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
 	{ MODKEY|ShiftMask,               XK_grave,      removescratch,          {.ui = 0 } },
 
