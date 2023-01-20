@@ -384,16 +384,16 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_F5,         xrdb,                   {.v = NULL } },
 
     // set tile layout
-	{ Mod1Mask|ControlMask,           XK_t,          setlayout,              {.v = &layouts[0]} },
+	{ MODKEY|Mod1Mask|ControlMask,    XK_t,          setlayout,              {.v = &layouts[0]} },
 
     // set float layout
-	{ Mod1Mask|ControlMask,           XK_f,          setlayout,              {.v = &layouts[1]} },
+	{ MODKEY|Mod1Mask|ControlMask,    XK_f,          setlayout,              {.v = &layouts[1]} },
 
     // set monocle layout
-	{ Mod1Mask|ControlMask,           XK_m,          setlayout,              {.v = &layouts[2]} },
+	{ MODKEY|Mod1Mask|ControlMask,    XK_m,          setlayout,              {.v = &layouts[2]} },
 
     // changing layouts
-	{ Mod1Mask|ControlMask,           XK_p,          setlayout,              {0} },
+	{ MODKEY|Mod1Mask|ControlMask,    XK_p,          setlayout,              {0} },
 
     // toggle fullscreen
   { MODKEY,                         XK_f,          fullscreen,             {0} },
