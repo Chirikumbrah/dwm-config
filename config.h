@@ -312,46 +312,51 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,               XK_j,          movestack,              {.i = +1 } },
  	{ MODKEY|ShiftMask,               XK_k,          movestack,              {.i = -1 } },
 
-	{ Mod1Mask,                       XK_7,          explace,                {.ui = EX_NW }},   /* XK_KP_Home,  */
-	{ Mod1Mask,                       XK_8,          explace,                {.ui = EX_N  }},   /* XK_KP_Up,    */
-	{ Mod1Mask,                       XK_9,          explace,                {.ui = EX_NE }},   /* XK_KP_Prior, */
-	{ Mod1Mask,                       XK_4,          explace,                {.ui = EX_W  }},   /* XK_KP_Left,  */
-	{ Mod1Mask,                       XK_5,          explace,                {.ui = EX_C  }},   /* XK_KP_Begin, */
-	{ Mod1Mask,                       XK_6,          explace,                {.ui = EX_E  }},   /* XK_KP_Right, */
-	{ Mod1Mask,                       XK_1,          explace,                {.ui = EX_SW }},   /* XK_KP_End,   */
-	{ Mod1Mask,                       XK_2,          explace,                {.ui = EX_S  }},   /* XK_KP_Down,  */
-	{ Mod1Mask,                       XK_3,          explace,                {.ui = EX_SE }},   /* XK_KP_Next,  */
-
-	{ Mod1Mask|ControlMask,           XK_6,          togglehorizontalexpand, {.i = +1} },  /* XK_KP_Right, */
-	{ Mod1Mask|ControlMask,           XK_3,          togglehorizontalexpand, {.i =  0} },  /* XK_KP_Next,  */
-	{ Mod1Mask|ControlMask,           XK_4,          togglehorizontalexpand, {.i = -1} },  /* XK_KP_Left,  */
-	{ Mod1Mask|ControlMask,           XK_8,          toggleverticalexpand,   {.i = +1} },  /* XK_KP_Up,    */
-	{ Mod1Mask|ControlMask,           XK_1,          toggleverticalexpand,   {.i =  0} },  /* XK_KP_End,   */
-	{ Mod1Mask|ControlMask,           XK_2,          toggleverticalexpand,   {.i = -1} },  /* XK_KP_Down,  */
-	{ Mod1Mask|ControlMask,           XK_9,          togglemaximize,         {.i = -1} },  /* XK_KP_Prior, */
-	{ Mod1Mask|ControlMask,           XK_7,          togglemaximize,         {.i = +1} },  /* XK_KP_Home,  */
-	{ Mod1Mask|ControlMask,           XK_5,          togglemaximize,         {.i =  0} },  /* XK_KP_Begin, */
+	{ Mod1Mask|ControlMask,           XK_7,          explace,                {.ui = EX_NW }},   /* XK_KP_Home,  */
+	{ Mod1Mask|ControlMask,           XK_8,          explace,                {.ui = EX_N  }},   /* XK_KP_Up,    */
+	{ Mod1Mask|ControlMask,           XK_9,          explace,                {.ui = EX_NE }},   /* XK_KP_Prior, */
+	{ Mod1Mask|ControlMask,           XK_4,          explace,                {.ui = EX_W  }},   /* XK_KP_Left,  */
+	{ Mod1Mask|ControlMask,           XK_5,          explace,                {.ui = EX_C  }},   /* XK_KP_Begin, */
+	{ Mod1Mask|ControlMask,           XK_6,          explace,                {.ui = EX_E  }},   /* XK_KP_Right, */
+	{ Mod1Mask|ControlMask,           XK_1,          explace,                {.ui = EX_SW }},   /* XK_KP_End,   */
+	{ Mod1Mask|ControlMask,           XK_2,          explace,                {.ui = EX_S  }},   /* XK_KP_Down,  */
+	{ Mod1Mask|ControlMask,           XK_3,          explace,                {.ui = EX_SE }},   /* XK_KP_Next,  */
 
     // resizing windows
 	{ MODKEY,                         XK_h,          setmfact,               {.f = -0.05} },
 	{ MODKEY,                         XK_l,          setmfact,               {.f = +0.05} },
-	{ MODKEY|ShiftMask,               XK_Return,     zoom,                   {0} },
-	{ MODKEY|Mod1Mask,                XK_u,          incrgaps,               {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,      XK_u,          incrgaps,               {.i = -1 } },
-	{ MODKEY|Mod1Mask,                XK_i,          incrigaps,              {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,      XK_i,          incrigaps,              {.i = -1 } },
-	{ MODKEY|Mod1Mask,                XK_o,          incrogaps,              {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,      XK_o,          incrogaps,              {.i = -1 } },
-	{ MODKEY|Mod1Mask,                XK_6,          incrihgaps,             {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,      XK_6,          incrihgaps,             {.i = -1 } },
-	{ MODKEY|Mod1Mask,                XK_7,          incrivgaps,             {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,      XK_7,          incrivgaps,             {.i = -1 } },
-	{ MODKEY|Mod1Mask,                XK_8,          incrohgaps,             {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,      XK_8,          incrohgaps,             {.i = -1 } },
-	{ MODKEY|Mod1Mask,                XK_9,          incrovgaps,             {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,      XK_9,          incrovgaps,             {.i = -1 } },
-	{ MODKEY|Mod1Mask,                XK_0,          togglegaps,             {0} },
-	{ MODKEY|Mod1Mask|ShiftMask,      XK_0,          defaultgaps,            {0} },
+
+	// useless zoom
+	// { MODKEY|ControlMask|ShiftMask,   XK_Return,     zoom,                   {0} },
+
+	// useless windows resizing
+	// { Mod1Mask|ControlMask,           XK_6,          togglehorizontalexpand, {.i = +1} },  /* XK_KP_Right, */
+	// { Mod1Mask|ControlMask,           XK_3,          togglehorizontalexpand, {.i =  0} },  /* XK_KP_Next,  */
+	// { Mod1Mask|ControlMask,           XK_4,          togglehorizontalexpand, {.i = -1} },  /* XK_KP_Left,  */
+	// { Mod1Mask|ControlMask,           XK_8,          toggleverticalexpand,   {.i = +1} },  /* XK_KP_Up,    */
+	// { Mod1Mask|ControlMask,           XK_1,          toggleverticalexpand,   {.i =  0} },  /* XK_KP_End,   */
+	// { Mod1Mask|ControlMask,           XK_2,          toggleverticalexpand,   {.i = -1} },  /* XK_KP_Down,  */
+	// { Mod1Mask|ControlMask,           XK_9,          togglemaximize,         {.i = -1} },  /* XK_KP_Prior, */
+	// { Mod1Mask|ControlMask,           XK_7,          togglemaximize,         {.i = +1} },  /* XK_KP_Home,  */
+	// { Mod1Mask|ControlMask,           XK_5,          togglemaximize,         {.i =  0} },  /* XK_KP_Begin, */
+
+	// useless gaps manipulations
+	// { MODKEY|Mod1Mask,                XK_u,          incrgaps,               {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,      XK_u,          incrgaps,               {.i = -1 } },
+	// { MODKEY|Mod1Mask,                XK_i,          incrigaps,              {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,      XK_i,          incrigaps,              {.i = -1 } },
+	// { MODKEY|Mod1Mask,                XK_o,          incrogaps,              {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,      XK_o,          incrogaps,              {.i = -1 } },
+	// { MODKEY|Mod1Mask,                XK_6,          incrihgaps,             {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,      XK_6,          incrihgaps,             {.i = -1 } },
+	// { MODKEY|Mod1Mask,                XK_7,          incrivgaps,             {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,      XK_7,          incrivgaps,             {.i = -1 } },
+	// { MODKEY|Mod1Mask,                XK_8,          incrohgaps,             {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,      XK_8,          incrohgaps,             {.i = -1 } },
+	// { MODKEY|Mod1Mask,                XK_9,          incrovgaps,             {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,      XK_9,          incrovgaps,             {.i = -1 } },
+	// { MODKEY|Mod1Mask,                XK_0,          togglegaps,             {0} },
+	// { MODKEY|Mod1Mask|ShiftMask,      XK_0,          defaultgaps,            {0} },
 
 	{ MODKEY|ShiftMask,               XK_Up,         exresize,               {.v = (int []){   0,  25 }}},  /* XK_KP_Up,    */
 	{ MODKEY|ShiftMask,               XK_Down,       exresize,               {.v = (int []){   0, -25 }}},  /* XK_KP_Down,  */
