@@ -401,7 +401,7 @@ static const Key keys[] = {
 
     // scratchpads
 	{ MODKEY|ShiftMask,               XK_Return,     togglescratch,          {.ui = 0 } },
-	{ MODKEY|ShiftMask,               XK_k,          togglescratch,          {.ui = 1 } },
+	{ MODKEY|ShiftMask,               XK_p,          togglescratch,          {.ui = 1 } },
 	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2 } },
 	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 3 } },
 	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } },
