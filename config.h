@@ -436,27 +436,28 @@ static const Key keys[] = {
 
 
     // dmenu 
-	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "dmenu/dmenu_scripts.sh apps")                               },
-	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "dmenu/dmenu_scripts.sh powermenu")                          },
-	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "dmenu/dmenu_scripts.sh clipmenu")                           },
+	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh apps")                               },
+	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh powermenu")                          },
+	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh clipmenu")                           },
+	{ Mod1Mask,             XK_n,                       spawn,	SHCMD(SCRIPTS "dmenu/netwokmanager-dmenu.py")                             },
 
   // console apps
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
   { MODKEY|ShiftMask,     XK_z,                       spawn,	SHCMD("zathura"                                  )                         },
 
   // gui apps
-  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find_app.sh chromium")                               },
-  { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find_app.sh telegram-desktop")                       },
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
+  { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh telegram-desktop")                       },
 
   // volume controls
-	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control_volume.sh up   && pkill -RTMIN+1 dwmblocks") },
-	{ 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD(SCRIPTS "system/control_volume.sh down && pkill -RTMIN+1 dwmblocks") },
-	{ 0,                     XF86XK_AudioMute,      	  spawn,	SHCMD(SCRIPTS "system/control_volume.sh mute && pkill -RTMIN+1 dwmblocks") },
-	{ 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD(SCRIPTS "system/control_volume.sh mic  && pkill -RTMIN+2 dwmblocks") },
+	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh up   && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh down && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioMute,      	  spawn,	SHCMD(SCRIPTS "system/control-volume.sh mute && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD(SCRIPTS "system/control-volume.sh mic  && pkill -RTMIN+2 dwmblocks") },
 
   // brightness controls
-  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get_brightness.sh      && pkill -RTMIN+3 dwmblocks") },
-  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get_brightness.sh      && pkill -RTMIN+3 dwmblocks") },
+  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
+  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
 
   // changing keyboard layout
 	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
@@ -464,8 +465,8 @@ static const Key keys[] = {
 	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && pkill -RTMIN+5 dwmblocks"                                         ) },
 
   // take screenshot
-  { 0,                     XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take_screenshot.sh partial")                         },
-  { MODKEY,                XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take_screenshot.sh full")                            },
+  { 0,                     XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh partial")                         },
+  { MODKEY,                XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh full")                            },
 };
 
 
