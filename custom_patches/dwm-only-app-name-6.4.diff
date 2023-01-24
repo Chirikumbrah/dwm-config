@@ -1,0 +1,34 @@
+From 670f406f7393153ec76064e22c9e92539a80dd77 Mon Sep 17 00:00:00 2001
+From: Chirikumbrah <basslo@protonmail.com>
+Date: Tue, 24 Jan 2023 20:24:11 +0300
+Subject: [PATCH] Creating patch to show only app name in the bar
+
+---
+ dwm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/dwm.c b/dwm.c
+index c152916..8562c7d 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -2138,7 +2138,7 @@ setup(void)
+ 	xatom[Manager] = XInternAtom(dpy, "MANAGER", False);
+ 	xatom[Xembed] = XInternAtom(dpy, "_XEMBED", False);
+ 	xatom[XembedInfo] = XInternAtom(dpy, "_XEMBED_INFO", False);
+-	netatom[NetWMName] = XInternAtom(dpy, "_NET_WM_NAME", False);
++	netatom[NetWMName] = XInternAtom(dpy, "WM_CLASS", False);
+ 	netatom[NetWMState] = XInternAtom(dpy, "_NET_WM_STATE", False);
+ 	netatom[NetWMCheck] = XInternAtom(dpy, "_NET_SUPPORTING_WM_CHECK", False);
+ 	netatom[NetWMFullscreen] = XInternAtom(dpy, "_NET_WM_STATE_FULLSCREEN", False);
+@@ -2678,7 +2678,7 @@ updatetitle(Client *c)
+ {
+ 
+ 	if (!gettextprop(c->win, netatom[NetWMName], c->name, sizeof c->name))
+-		gettextprop(c->win, XA_WM_NAME, c->name, sizeof c->name);
++		gettextprop(c->win, XA_WM_CLASS, c->name, sizeof c->name);
+ 	if (c->name[0] == '\0') /* hack to mark broken clients */
+ 		strcpy(c->name, broken);
+ 
+-- 
+2.39.0
+
