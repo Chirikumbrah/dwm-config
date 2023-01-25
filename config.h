@@ -449,39 +449,42 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
   { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh telegram-desktop")                       },
 
-	// // dwmblocks
-	// // audio controls
-	// { 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh up   && pkill -RTMIN+1 dwmblocks") },
-	// { 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh down && pkill -RTMIN+1 dwmblocks") },
-	// { 0,                     XF86XK_AudioMute,      	  spawn,	SHCMD(SCRIPTS "system/control-volume.sh mute && pkill -RTMIN+1 dwmblocks") },
-	// { 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD(SCRIPTS "system/control-volume.sh mic  && pkill -RTMIN+2 dwmblocks") },
-  // // brightness controls
-  // { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
-  // { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
-  //  // changing keyboard layout
-	// { Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
-	// { ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
-	// { 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && pkill -RTMIN+5 dwmblocks"                ) },
-
-	// sbar
-	// audio controls
-	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh up   && kill -35 $(cat /tmp/yrbar)") },
-	{ 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh down && kill -35 $(cat /tmp/yrbar)") },
-	{ 0,                     XF86XK_AudioMute,      	  spawn,	SHCMD(SCRIPTS "system/control-volume.sh mute && kill -35 $(cat /tmp/yrbar)") },
-	{ 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD(SCRIPTS "system/control-volume.sh mic  && kill -36 $(cat /tmp/yrbar)") },
-
-  // brightness controls
-  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && kill -37 $(cat /tmp/yrbar)") },
-  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && kill -37 $(cat /tmp/yrbar)") },
-
-  // changing keyboard layout
-	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("kill -38 $(cat /tmp/yrbar)"                                         ) },
-	{ ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("kill -38 $(cat /tmp/yrbar)"                                         ) },
-	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && kill -38 $(cat /tmp/yrbar)"                ) },
 
   // take screenshot
-  { 0,                     XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh partial")                         },
-  { MODKEY,                XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh full")                            },
+  { 0,                     XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh --partial")                       },
+  { MODKEY,                XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh --full")                          },
+
+	// dwmblocks-async
+	// audio controls
+	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh up   && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh down && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioMute,      	  spawn,	SHCMD(SCRIPTS "system/control-volume.sh mute && pkill -RTMIN+1 dwmblocks") },
+	{ 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD(SCRIPTS "system/control-volume.sh mic  && pkill -RTMIN+2 dwmblocks") },
+
+  // brightness controls
+  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
+  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
+
+   // changing keyboard layout
+	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
+	{ ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
+	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && pkill -RTMIN+5 dwmblocks"                ) },
+
+	// // sbar
+	// // audio controls
+	// { 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh up   && kill -35 $(cat /tmp/yrbar)") },
+	// { 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh down && kill -35 $(cat /tmp/yrbar)") },
+	// { 0,                     XF86XK_AudioMute,      	  spawn,	SHCMD(SCRIPTS "system/control-volume.sh mute && kill -35 $(cat /tmp/yrbar)") },
+	// { 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD(SCRIPTS "system/control-volume.sh mic  && kill -36 $(cat /tmp/yrbar)") },
+
+  //  // brightness controls
+  //  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && kill -37 $(cat /tmp/yrbar)") },
+  //  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && kill -37 $(cat /tmp/yrbar)") },
+
+  //  // changing keyboard layout
+	// { Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("kill -38 $(cat /tmp/yrbar)"                                         ) },
+	// { ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("kill -38 $(cat /tmp/yrbar)"                                         ) },
+	// { 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && kill -38 $(cat /tmp/yrbar)"                ) },
 };
 
 
