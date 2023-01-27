@@ -282,6 +282,16 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
+#define STACKKEYS(MOD,ACTION) \
+	{ MOD, XK_Left,  ACTION##stack, {.i = INC(+1) } }, \
+	{ MOD, XK_Right, ACTION##stack, {.i = INC(-1) } }, \
+	{ MOD, XK_l,     ACTION##stack, {.i = INC(+1) } }, \
+	{ MOD, XK_h,     ACTION##stack, {.i = INC(-1) } }, \
+	{ MOD, XK_s,     ACTION##stack, {.i = PREVSEL } }, \
+	{ MOD, XK_w,     ACTION##stack, {.i = 0 } }, \
+	{ MOD, XK_e,     ACTION##stack, {.i = 1 } }, \
+	{ MOD, XK_a,     ACTION##stack, {.i = 2 } }, \
+	{ MOD, XK_z,     ACTION##stack, {.i = -1 } },
 
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
@@ -303,15 +313,21 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_i,          incnmaster,             {.i = +1 } },
 	{ MODKEY,                         XK_d,          incnmaster,             {.i = -1 } },
     
+    // resizing windows
+	{ MODKEY|ShiftMask,               XK_h,          setmfact,               {.f = -0.05} },
+	{ MODKEY|ShiftMask,               XK_l,          setmfact,               {.f = +0.05} },
+
     // changing focus
-	{ MODKEY,                         XK_Left,       focusstack,             {.i = +1 } },
-	{ MODKEY,                         XK_Right,      focusstack,             {.i = -1 } },
-	{ MODKEY,                         XK_j,          focusstack,             {.i = +1 } },
-	{ MODKEY,                         XK_k,          focusstack,             {.i = -1 } },
+	{ MODKEY,                         XK_Up,         focusstack,             {.i = +1 } },
+	{ MODKEY,                         XK_Down,       focusstack,             {.i = -1 } },
+	{ MODKEY,                         XK_k,          focusstack,             {.i = +1 } },
+	{ MODKEY,                         XK_j,          focusstack,             {.i = -1 } },
+	STACKKEYS(MODKEY,                                focus)
 
   // moving windows
-  { MODKEY|ShiftMask,               XK_j,          movestack,              {.i = +1 } },
- 	{ MODKEY|ShiftMask,               XK_k,          movestack,              {.i = -1 } },
+  { MODKEY|ControlMask,             XK_h,          movestack,              {.i = +1 } },
+ 	{ MODKEY|ControlMask,             XK_l,          movestack,              {.i = -1 } },
+	STACKKEYS(MODKEY|ControlMask,                    push)
 
 	{ Mod1Mask|ControlMask,           XK_7,          explace,                {.ui = EX_NW }},   /* XK_KP_Home,  */
 	{ Mod1Mask|ControlMask,           XK_8,          explace,                {.ui = EX_N  }},   /* XK_KP_Up,    */
@@ -323,9 +339,6 @@ static const Key keys[] = {
 	{ Mod1Mask|ControlMask,           XK_2,          explace,                {.ui = EX_S  }},   /* XK_KP_Down,  */
 	{ Mod1Mask|ControlMask,           XK_3,          explace,                {.ui = EX_SE }},   /* XK_KP_Next,  */
 
-    // resizing windows
-	{ MODKEY,                         XK_h,          setmfact,               {.f = -0.05} },
-	{ MODKEY,                         XK_l,          setmfact,               {.f = +0.05} },
 
 	// useless zoom
 	// { MODKEY|ControlMask|ShiftMask,   XK_Return,     zoom,                   {0} },

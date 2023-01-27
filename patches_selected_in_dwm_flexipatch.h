@@ -1111,7 +1111,7 @@
  * thus note a conflict between these two patches.
  * https://dwm.suckless.org/patches/stacker/
  */
-#define STACKER_PATCH 0
+#define STACKER_PATCH 1
 
 /* Steam, and steam windows (games), trigger a ConfigureNotify request every time the window
  * gets focus. More so, the configure event passed along from Steam tends to have the wrong

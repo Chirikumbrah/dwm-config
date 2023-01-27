@@ -56,6 +56,7 @@
 #define Button8                 8
 #define Button9                 9
 #define NUMTAGS                 9
+#define NUMVIEWHIST             NUMTAGS
 #define BARRULES                20
 #define BUTTONMASK              (ButtonPressMask|ButtonReleaseMask)
 #define CLEANMASK(mask)         (mask & ~(numlockmask|LockMask) & (ShiftMask|ControlMask|Mod1Mask|Mod2Mask|Mod3Mask|Mod4Mask|Mod5Mask))
@@ -309,7 +310,6 @@ static void expose(XEvent *e);
 static void focus(Client *c);
 static void focusin(XEvent *e);
 static void focusmon(const Arg *arg);
-static void focusstack(const Arg *arg);
 static Atom getatomprop(Client *c, Atom prop, Atom req);
 static int getrootptr(int *x, int *y);
 static long getstate(Window w);
@@ -949,7 +949,7 @@ createmon(void)
 
 	if (!(m->pertag = (Pertag *)calloc(1, sizeof(Pertag))))
 		die("fatal: could not malloc() %u bytes\n", sizeof(Pertag));
-	m->pertag->curtag = m->pertag->prevtag = 1;
+	m->pertag->curtag = 1;
 	for (i = 0; i <= NUMTAGS; i++) {
 
 		/* init nmaster */
@@ -1249,31 +1249,6 @@ focusmon(const Arg *arg)
 	focus(NULL);
 }
 
-void
-focusstack(const Arg *arg)
-{
-	Client *c = NULL, *i;
-
-	if (!selmon->sel || (selmon->sel->isfullscreen && lockfullscreen))
-		return;
-	if (arg->i > 0) {
-		for (c = selmon->sel->next; c && (!ISVISIBLE(c) || (arg->i == 1 && HIDDEN(c))); c = c->next);
-		if (!c)
-			for (c = selmon->clients; c && (!ISVISIBLE(c) || (arg->i == 1 && HIDDEN(c))); c = c->next);
-	} else {
-		for (i = selmon->clients; i != selmon->sel; i = i->next)
-			if (ISVISIBLE(i) && !(arg->i == -1 && HIDDEN(i)))
-				c = i;
-		if (!c)
-			for (; i; i = i->next)
-				if (ISVISIBLE(i) && !(arg->i == -1 && HIDDEN(i)))
-					c = i;
-	}
-	if (c) {
-		focus(c);
-		restack(selmon);
-	}
-}
 
 Atom
 getatomprop(Client *c, Atom prop, Atom req)
@@ -2344,12 +2319,10 @@ toggleview(const Arg *arg)
 
 		if (newtagset == ~SPTAGMASK)
 		{
-			selmon->pertag->prevtag = selmon->pertag->curtag;
 			selmon->pertag->curtag = 0;
 		}
 		/* test if the user did not select the same tag */
 		if (!(newtagset & 1 << (selmon->pertag->curtag - 1))) {
-			selmon->pertag->prevtag = selmon->pertag->curtag;
 			for (i = 0; !(newtagset & 1 << i); i++) ;
 			selmon->pertag->curtag = i + 1;
 		}
@@ -2384,8 +2357,10 @@ unfocus(Client *c, int setfocus, Client *nextfocus)
 void
 unmanage(Client *c, int destroyed)
 {
-	Monitor *m = c->mon;
+	Monitor *m;
 	XWindowChanges wc;
+
+	m = c->mon;
 
 	if (c->swallowing) {
 		unswallow(c);
@@ -2718,6 +2693,8 @@ view(const Arg *arg)
 	}
 	tagpreviewswitchtag();
 	selmon->seltags ^= 1; /* toggle sel tagset */
+	if (arg->ui & TAGMASK)
+		selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
 	pertagview(arg);
 	focus(NULL);
 	arrange(selmon);

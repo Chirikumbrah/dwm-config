@@ -28,6 +28,7 @@
 #include "scratchpad.c"
 #include "shift.c"
 #include "shiftviewclients.c"
+#include "stacker.c"
 #include "sticky.c"
 #include "swallow.c"
 #include "vanitygaps.c"
