@@ -231,6 +231,7 @@ static const Rule rules[] = {
 	RULE(.class = "discord",                     .tags = 1 << 7)
 	RULE(.class = "Skype",                       .tags = 1 << 7)
 	RULE(.class = "zoom",                        .tags = 1 << 7)
+	RULE(.class = "Jami",                        .tags = 1 << 7)
 	RULE(.class = "obs",                         .tags = 1 << 7)
   // NINTH
 	RULE(.class = "htop",                        .tags = 1 << 8)
