@@ -107,6 +107,7 @@ const char *spcmd2[] = {"keepassxc", NULL };
 const char *spcmd3[] = {"audacious", NULL };
 const char *spcmd4[] = {"galculator", NULL };
 const char *spcmd5[] = {"alacritty", "--class", "calcurse,calcurse", "-e", "calcurse", NULL };
+const char *spcmd6[] = {"Nsxiv", NULL };
 
 static Sp scratchpads[] = {
    /* name          cmd  */
@@ -115,6 +116,7 @@ static Sp scratchpads[] = {
    {"audacious",    spcmd3},
    {"galculator",   spcmd4},
    {"calcurse",     spcmd5},
+   {"nsxiv",        spcmd6},
 };
 
 /* Tags
@@ -189,10 +191,11 @@ static const Rule rules[] = {
 	RULE(.class = "Audacious",  .tags = SPTAG(2), .isfloating = 1)
 	RULE(.class = "Galculator", .tags = SPTAG(3), .isfloating = 1)
 	RULE(.class = "calcurse",   .tags = SPTAG(4), .isfloating = 1)
+	RULE(.class = "Nsxiv",      .tags = SPTAG(5), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",       .isfloating = 1)
-	RULE(.class = "Nsxiv",     .isfloating = 1)
+	// RULE(.class = "Nsxiv",     .isfloating = 1)
 	RULE(.class = "vlc",       .isfloating = 1)
 	RULE(.class = "mpv",       .isfloating = 1)
 	RULE(.class = "ffplay",    .isfloating = 1)
@@ -428,6 +431,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2 } },
 	{ MODKEY|ShiftMask,               XK_g,          togglescratch,          {.ui = 3 } },
 	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } },
+	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5 } },
 	{ MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
 	{ MODKEY|ShiftMask,               XK_grave,      removescratch,          {.ui = 0 } },
 
