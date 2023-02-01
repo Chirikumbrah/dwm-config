@@ -180,25 +180,25 @@ static const Rule rules[] = {
 	 *	WM_WINDOW_ROLE(STRING) = role
 	 *	_NET_WM_WINDOW_TYPE(ATOM) = wintype
 	 */
-	RULE(.wintype = WTYPE "DIALOG", .isfloating = 1)
-	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
-	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
-	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
+	RULE(.wintype = WTYPE "DIALOG",    .isfloating = 1)
+	RULE(.wintype = WTYPE "UTILITY",   .isfloating = 1)
+	RULE(.wintype = WTYPE "TOOLBAR",   .isfloating = 1)
+	RULE(.wintype = WTYPE "SPLASH",    .isfloating = 1)
     
   // scratchpads
-	RULE(.class = "spterm",     .tags = SPTAG(0), .isfloating = 1)
-	RULE(.class = "KeePassXC",  .tags = SPTAG(1), .isfloating = 1)
-	RULE(.class = "Audacious",  .tags = SPTAG(2), .isfloating = 1)
-	RULE(.class = "Galculator", .tags = SPTAG(3), .isfloating = 1)
-	RULE(.class = "calcurse",   .tags = SPTAG(4), .isfloating = 1)
-	RULE(.class = "Nsxiv",      .tags = SPTAG(5), .isfloating = 1)
+	RULE(.class = "spterm",            .tags = SPTAG(0), .isfloating = 1)
+	RULE(.class = "KeePassXC",         .tags = SPTAG(1), .isfloating = 1)
+	RULE(.class = "Audacious",         .tags = SPTAG(2), .isfloating = 1)
+	RULE(.class = "Galculator",        .tags = SPTAG(3), .isfloating = 1)
+	RULE(.class = "calcurse",          .tags = SPTAG(4), .isfloating = 1)
+	RULE(.class = "Nsxiv",             .tags = SPTAG(5), .isfloating = 1)
 
   // floating windows
-	RULE(.class = "feh",       .isfloating = 1)
-	// RULE(.class = "Nsxiv",     .isfloating = 1)
-	RULE(.class = "vlc",       .isfloating = 1)
-	RULE(.class = "mpv",       .isfloating = 1)
-	RULE(.class = "ffplay",    .isfloating = 1)
+	RULE(.class = "feh",               .isfloating = 1)
+	RULE(.class = "vlc",               .isfloating = 1)
+	RULE(.class = "mpv",               .isfloating = 1)
+	RULE(.class = "ffplay",            .isfloating = 1)
+	RULE(.class = "Blueman-manager",   .isfloating = 1)
 
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
@@ -226,7 +226,7 @@ static const Rule rules[] = {
 	RULE(.class = "Lingot",                      .tags = 1 << 5)
   // SEVENTH
 	RULE(.class = "Soffice",                     .tags = 1 << 6)
-	RULE(.class = "libreoffice",                     .tags = 1 << 6)
+	RULE(.class = "libreoffice",                 .tags = 1 << 6)
 	RULE(.class = "kolourpaint",                 .tags = 1 << 6)
 	RULE(.class = "DesktopEditors",              .tags = 1 << 6)
 	RULE(.class = "Rustdesk",                    .tags = 1 << 6)
