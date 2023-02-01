@@ -223,6 +223,7 @@ static const Rule rules[] = {
 	RULE(.class = "Lingot",                      .tags = 1 << 5)
   // SEVENTH
 	RULE(.class = "Soffice",                     .tags = 1 << 6)
+	RULE(.class = "libreoffice",                     .tags = 1 << 6)
 	RULE(.class = "kolourpaint",                 .tags = 1 << 6)
 	RULE(.class = "DesktopEditors",              .tags = 1 << 6)
 	RULE(.class = "Rustdesk",                    .tags = 1 << 6)
