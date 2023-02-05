@@ -211,6 +211,7 @@ static const Rule rules[] = {
   // THIRD
 	RULE(.class = "ranger",                      .tags = 1 << 2)
 	RULE(.class = "lf",                          .tags = 1 << 2)
+	RULE(.class = "Localsend_app",               .tags = 1 << 2)
   // FOURTH
 	RULE(.class = "Telegram",                    .tags = 1 << 3)
 	RULE(.class = "Slack",                       .tags = 1 << 3)
@@ -218,12 +219,14 @@ static const Rule rules[] = {
 	RULE(.class = "Code",                        .tags = 1 << 4)
 	RULE(.class = "jetbrains-pycharm-ce",        .tags = 1 << 4)
 	RULE(.class = "Lens",                        .tags = 1 << 4)
+	RULE(.class = "Notesnook",                   .tags = 1 << 4)
   // SIXTH
 	RULE(.class = "guitarpro7.exe",              .tags = 1 << 5)
 	RULE(.class = "TuxGuitar",                   .tags = 1 << 5)
 	RULE(.class = "Picard",                      .tags = 1 << 5)
 	RULE(.class = "Gtick",                       .tags = 1 << 5)
 	RULE(.class = "Lingot",                      .tags = 1 << 5)
+	RULE(.class = "Flowblade",                   .tags = 1 << 5)
   // SEVENTH
 	RULE(.class = "Soffice",                     .tags = 1 << 6)
 	RULE(.class = "libreoffice",                 .tags = 1 << 6)
