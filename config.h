@@ -212,6 +212,7 @@ static const Rule rules[] = {
 	RULE(.class = "ranger",                      .tags = 1 << 2)
 	RULE(.class = "lf",                          .tags = 1 << 2)
 	RULE(.class = "Localsend_app",               .tags = 1 << 2)
+	RULE(.class = "qBittorrent",                 .tags = 1 << 2)
   // FOURTH
 	RULE(.class = "Telegram",                    .tags = 1 << 3)
 	RULE(.class = "Slack",                       .tags = 1 << 3)
