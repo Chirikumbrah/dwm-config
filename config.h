@@ -198,6 +198,7 @@ static const Rule rules[] = {
 	RULE(.class = "vlc",               .isfloating = 1)
 	RULE(.class = "mpv",               .isfloating = 1)
 	RULE(.class = "ffplay",            .isfloating = 1)
+	RULE(.class = "QjackCtl",          .isfloating = 1)
 	RULE(.class = "Blueman-manager",   .isfloating = 1)
 
   // FIRST
