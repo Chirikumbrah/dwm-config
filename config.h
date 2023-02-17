@@ -29,74 +29,73 @@ static const char *fonts[]               = { "DejaVuSansMono:size=10", "FontAwes
 static const char dmenufont[]            = "DejaVuSansMono:size=10";
 
 // dracula colors
-static const char dark[]                 = "#282A36";
-static const char pink[]                 = "#ff79c6";
-static const char green[]                = "#50fa7b";
-static const char purple[]               = "#bd93f9";
-static const char yellow[]               = "#f1fa8c";
-static const char white[]                = "#f8f8f2";
-
-static char c000000[]                    = "#000000"; // placeholder value
+#define DARK       "#282A36"
+#define PINK       "#ff79c6"
+#define GREEN      "#50fa7b"
+#define PURPLE     "#bd93f9"
+#define YELLOW     "#f1fa8c"
+#define WHITE      "#f8f8f2"
+#define RED        "#ff5555"
 
 // window
-static char normfgcolor[]                = "#f8f8f2";
-static char normbgcolor[]                = "#282a36";
-static char normbordercolor[]            = "#bd93f9";
-static char normfloatcolor[]             = "#bd93f9";
+static char normfgcolor[]                = PURPLE;
+static char normbgcolor[]                = DARK;
+static char normbordercolor[]            = PURPLE;
+static char normfloatcolor[]             = PURPLE;
 
-static char selfgcolor[]                 = "#282a36";
-static char selbgcolor[]                 = "#bd93f9";
-static char selbordercolor[]             = "#50fa7b";
-static char selfloatcolor[]              = "#50fa7b";
+static char selfgcolor[]                 = DARK;
+static char selbgcolor[]                 = PURPLE;
+static char selbordercolor[]             = GREEN;
+static char selfloatcolor[]              = GREEN;
 
 // title
-static char titlenormfgcolor[]           = "#bd93f9";
-static char titlenormbgcolor[]           = "#282a36";
-static char titlenormbordercolor[]       = "#bd93f9";
-static char titlenormfloatcolor[]        = "#bd93f9";
+static char titlenormfgcolor[]           = PURPLE;
+static char titlenormbgcolor[]           = DARK;
+static char titlenormbordercolor[]       = PURPLE;
+static char titlenormfloatcolor[]        = PURPLE;
 
-static char titleselfgcolor[]            = "#50fa7b";
-static char titleselbgcolor[]            = "#282a36";
-static char titleselbordercolor[]        = "#f1fa8c";
-static char titleselfloatcolor[]         = "#bd93f9";
+static char titleselfgcolor[]            = GREEN;
+static char titleselbgcolor[]            = DARK;
+static char titleselbordercolor[]        = YELLOW;
+static char titleselfloatcolor[]         = PURPLE;
 
 // tags
-static char tagsnormfgcolor[]            = "#f8f8f2";
-static char tagsnormbgcolor[]            = "#282a36";
-static char tagsnormbordercolor[]        = "#bd93f9";
-static char tagsnormfloatcolor[]         = "#bd93f9";
+static char tagsnormfgcolor[]            = PURPLE;
+static char tagsnormbgcolor[]            = DARK;
+static char tagsnormbordercolor[]        = PURPLE;
+static char tagsnormfloatcolor[]         = PURPLE;
 
-static char tagsselfgcolor[]             = "#282a36";
-static char tagsselbgcolor[]             = "#bd93f9";
-static char tagsselbordercolor[]         = "#50fa7b";
-static char tagsselfloatcolor[]          = "#50fa7b";
+static char tagsselfgcolor[]             = DARK;
+static char tagsselbgcolor[]             = PURPLE;
+static char tagsselbordercolor[]         = GREEN;
+static char tagsselfloatcolor[]          = GREEN;
 
 // hidden
 static char hidnormfgcolor[]             = "#6272a4";
-static char hidnormbgcolor[]             = "#282a36";
-static char hidselfgcolor[]              = "#bd93f9";
-static char hidselbgcolor[]              = "#282a36";
+static char hidnormbgcolor[]             = DARK;
+static char hidselfgcolor[]              = PURPLE;
+static char hidselbgcolor[]              = DARK;
 
 // urgent
-static char urgfgcolor[]                 = "#282a36";
-static char urgbgcolor[]                 = "#50fa7b";
-static char urgbordercolor[]             = "#ff5555";
-static char urgfloatcolor[]              = "#ff5555";
+static char urgfgcolor[]                 = DARK;
+static char urgbgcolor[]                 = GREEN;
+static char urgbordercolor[]             = RED;
+static char urgfloatcolor[]              = RED;
 
-
+static char transparent[]                = "#000000"; // placeholder value
 
 
 static char *colors[][ColCount] = {
 	/*                       fg                bg                border                float */
-	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normfloatcolor },
-	[SchemeSel]          = { selfgcolor,       selbgcolor,       selbordercolor,       selfloatcolor },
+	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normfloatcolor      },
+	[SchemeSel]          = { selfgcolor,       selbgcolor,       selbordercolor,       selfloatcolor       },
 	[SchemeTitleNorm]    = { titlenormfgcolor, titlenormbgcolor, titlenormbordercolor, titlenormfloatcolor },
-	[SchemeTitleSel]     = { titleselfgcolor,  titleselbgcolor,  titleselbordercolor,  titleselfloatcolor },
-	[SchemeTagsNorm]     = { tagsnormfgcolor,  tagsnormbgcolor,  tagsnormbordercolor,  tagsnormfloatcolor },
-	[SchemeTagsSel]      = { tagsselfgcolor,   tagsselbgcolor,   tagsselbordercolor,   tagsselfloatcolor },
-	[SchemeHidNorm]      = { hidnormfgcolor,   hidnormbgcolor,   c000000,              c000000 },
-	[SchemeHidSel]       = { hidselfgcolor,    hidselbgcolor,    c000000,              c000000 },
-	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
+	[SchemeTitleSel]     = { titleselfgcolor,  titleselbgcolor,  titleselbordercolor,  titleselfloatcolor  },
+	[SchemeTagsNorm]     = { tagsnormfgcolor,  tagsnormbgcolor,  tagsnormbordercolor,  tagsnormfloatcolor  },
+	[SchemeTagsSel]      = { tagsselfgcolor,   tagsselbgcolor,   tagsselbordercolor,   tagsselfloatcolor   },
+	[SchemeHidNorm]      = { hidnormfgcolor,   hidnormbgcolor,   transparent,          transparent         },
+	[SchemeHidSel]       = { hidselfgcolor,    hidselbgcolor,    transparent,          transparent         },
+	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor       },
 };
 
 
@@ -213,6 +212,7 @@ static const Rule rules[] = {
   // THIRD
 	RULE(.class = "ranger",                      .tags = 1 << 2)
 	RULE(.class = "lf",                          .tags = 1 << 2)
+	RULE(.class = "pcmanfm-qt",                  .tags = 1 << 2)
 	RULE(.class = "Localsend_app",               .tags = 1 << 2)
 	RULE(.class = "qBittorrent",                 .tags = 1 << 2)
   // FOURTH
@@ -467,7 +467,7 @@ static const Key keys[] = {
 	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh apps")                               },
 	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh powermenu")                          },
 	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh clipmenu")                           },
-	{ Mod1Mask,             XK_n,                       spawn,	SHCMD(SCRIPTS "dmenu/netwokmanager-dmenu.py")                             },
+	{ Mod1Mask,             XK_n,                       spawn,	SHCMD(SCRIPTS "dmenu/netwokmanager-dmenu.py")                              },
 
   // console apps
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
@@ -475,6 +475,7 @@ static const Key keys[] = {
 
   // gui apps
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
+  { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh pcmanfm-qt")                             },
   { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh telegram-desktop")                       },
 
 
