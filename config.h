@@ -100,14 +100,15 @@ static char *colors[][ColCount] = {
 };
 
 
-
+// User apps
+#define IMG_VIEWER "qimgv"
 
 const char *spcmd1[] = {"alacritty", "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
 const char *spcmd2[] = {"keepassxc", NULL };
 const char *spcmd3[] = {"audacious", NULL };
 const char *spcmd4[] = {"galculator", NULL };
 const char *spcmd5[] = {"alacritty", "--class", "calcurse,calcurse", "-e", "calcurse", NULL };
-const char *spcmd6[] = {"Nsxiv", NULL };
+const char *spcmd6[] = {IMG_VIEWER, NULL };
 
 static Sp scratchpads[] = {
    /* name          cmd  */
@@ -116,7 +117,7 @@ static Sp scratchpads[] = {
    {"audacious",    spcmd3},
    {"galculator",   spcmd4},
    {"calcurse",     spcmd5},
-   {"nsxiv",        spcmd6},
+   {IMG_VIEWER,     spcmd6},
 };
 
 /* Tags
@@ -191,7 +192,7 @@ static const Rule rules[] = {
 	RULE(.class = "Audacious",         .tags = SPTAG(2), .isfloating = 1)
 	RULE(.class = "Galculator",        .tags = SPTAG(3), .isfloating = 1)
 	RULE(.class = "calcurse",          .tags = SPTAG(4), .isfloating = 1)
-	RULE(.class = "Nsxiv",             .tags = SPTAG(5), .isfloating = 1)
+	RULE(.class = IMG_VIEWER,          .tags = SPTAG(5), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",               .isfloating = 1)
