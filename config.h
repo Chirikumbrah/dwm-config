@@ -223,6 +223,7 @@ static const Rule rules[] = {
 	RULE(.class = "jetbrains-pycharm-ce",        .tags = 1 << 4)
 	RULE(.class = "Lens",                        .tags = 1 << 4)
 	RULE(.class = "Notesnook",                   .tags = 1 << 4)
+	RULE(.class = "QOwnNotes",                   .tags = 1 << 4)
   // SIXTH
 	RULE(.class = "guitarpro7.exe",              .tags = 1 << 5)
 	RULE(.class = "TuxGuitar",                   .tags = 1 << 5)
