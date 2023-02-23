@@ -480,6 +480,9 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh pcmanfm-qt")                             },
   { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh telegram-desktop")                       },
 
+	// flatpak apps
+	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD("flatpak run net.cozic.joplin_desktop")                              },
+	
 
   // take screenshot
   { 0,                     XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh --partial")                       },
