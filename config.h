@@ -232,6 +232,7 @@ static const Rule rules[] = {
 	RULE(.class = "Gtick",                       .tags = 1 << 5)
 	RULE(.class = "Lingot",                      .tags = 1 << 5)
 	RULE(.class = "Flowblade",                   .tags = 1 << 5)
+	RULE(.class = "java",                        .tags = 1 << 5)
   // SEVENTH
 	RULE(.class = "Soffice",                     .tags = 1 << 6)
 	RULE(.class = "libreoffice",                 .tags = 1 << 6)
