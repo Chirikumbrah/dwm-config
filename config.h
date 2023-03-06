@@ -25,7 +25,7 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static int tagindicatortype              = INDICATOR_NONE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = { "DejaVuSansMono:size=10", "FontAwesome5Brands:style=Solid:size=10:antialias:true", "FontAwesome5Free:style=Solid:size=10:antialias:true" };
+static const char *fonts[]               = { "DejaVuSansMono:size=10", "FontAwesome5Brands:style=Solid:size=10:antialias:true", "FontAwesome5Free:style=Solid:size=10:antialias:true", "DejaVuSansMonoNerdFont:size=10" };
 static const char dmenufont[]            = "DejaVuSansMono:size=10";
 
 // dracula colors
@@ -102,12 +102,13 @@ static char *colors[][ColCount] = {
 // User apps
 #define IMG_VIEWER "qimgv"
 
-const char *spcmd1[] = {"alacritty", "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
-const char *spcmd2[] = {"keepassxc", NULL };
-const char *spcmd3[] = {"audacious", NULL };
+const char *spcmd1[] = {"alacritty",  "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
+const char *spcmd2[] = {"keepassxc",  NULL };
+const char *spcmd3[] = {"audacious",  NULL };
 const char *spcmd4[] = {"galculator", NULL };
-const char *spcmd5[] = {"alacritty", "--class", "calcurse,calcurse", "-e", "calcurse", NULL };
-const char *spcmd6[] = {IMG_VIEWER, NULL };
+const char *spcmd5[] = {"alacritty",  "--class", "calcurse,calcurse", "-e", "calcurse", NULL };
+const char *spcmd6[] = {IMG_VIEWER,   NULL };
+const char *spcmd7[] = {"alacritty",  "--class", "iwd,iwd",           "-e", "iwctl",    NULL };
 
 static Sp scratchpads[] = {
    /* name          cmd  */
@@ -117,6 +118,7 @@ static Sp scratchpads[] = {
    {"galculator",   spcmd4},
    {"calcurse",     spcmd5},
    {IMG_VIEWER,     spcmd6},
+   {"iwd",          spcmd7},
 };
 
 /* Tags
@@ -192,6 +194,7 @@ static const Rule rules[] = {
 	RULE(.class = "Galculator",        .tags = SPTAG(3), .isfloating = 1)
 	RULE(.class = "calcurse",          .tags = SPTAG(4), .isfloating = 1)
 	RULE(.class = IMG_VIEWER,          .tags = SPTAG(5), .isfloating = 1)
+	RULE(.class = "iwd",               .tags = SPTAG(6), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",               .isfloating = 1)
@@ -436,14 +439,15 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,             XK_f,          togglefloating,         {0} },
 
     // scratchpads
-	{ MODKEY|ShiftMask,               XK_Return,     togglescratch,          {.ui = 0 } },
-	{ MODKEY|ShiftMask,               XK_p,          togglescratch,          {.ui = 1 } },
-	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2 } },
-	{ MODKEY|ShiftMask,               XK_g,          togglescratch,          {.ui = 3 } },
-	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } },
-	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5 } },
-	{ MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
-	{ MODKEY|ShiftMask,               XK_grave,      removescratch,          {.ui = 0 } },
+	{ MODKEY|ShiftMask,               XK_Return,     togglescratch,          {.ui = 0 } }, // terminal
+	{ MODKEY|ShiftMask,               XK_p,          togglescratch,          {.ui = 1 } }, // keepass
+	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2 } }, // music player
+	{ MODKEY|ShiftMask,               XK_g,          togglescratch,          {.ui = 3 } }, // galculator
+	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } }, // calendar
+	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5 } }, // qimgv
+	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6 } }, // iwd
+	// { MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
+	// { MODKEY|ShiftMask,               XK_grave,      removescratch,          {.ui = 0 } },
 
 	{ MODKEY,                         XK_0,          view,                   {.ui = ~SPTAGMASK } },
 	{ MODKEY|ShiftMask,               XK_0,          tag,                    {.ui = ~SPTAGMASK } },
@@ -471,10 +475,10 @@ static const Key keys[] = {
 	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh apps")                               },
 	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh powermenu")                          },
 	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh clipmenu")                           },
-	{ Mod1Mask,             XK_n,                       spawn,	SHCMD(SCRIPTS "dmenu/netwokmanager-dmenu.py")                              },
+	// { Mod1Mask,             XK_n,                       spawn,	SHCMD(SCRIPTS "dmenu/netwokmanager-dmenu.py")                              },
 
   // console apps
-  { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop     -e htop")                           },
+  { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                           },
   { MODKEY|ShiftMask,     XK_z,                       spawn,	SHCMD("zathura"                                  )                         },
 
   // gui apps
