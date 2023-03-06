@@ -106,9 +106,10 @@ const char *spcmd1[] = {"alacritty",  "--class", "spterm,spterm", "--config-file
 const char *spcmd2[] = {"keepassxc",  NULL };
 const char *spcmd3[] = {"audacious",  NULL };
 const char *spcmd4[] = {"galculator", NULL };
-const char *spcmd5[] = {"alacritty",  "--class", "calcurse,calcurse", "-e", "calcurse", NULL };
+const char *spcmd5[] = {"alacritty",  "--class", "calcurse,calcurse", "-e", "calcurse",     NULL };
 const char *spcmd6[] = {IMG_VIEWER,   NULL };
-const char *spcmd7[] = {"alacritty",  "--class", "iwd,iwd",           "-e", "iwctl",    NULL };
+const char *spcmd7[] = {"alacritty",  "--class", "iwctl,iwctl",       "-e", "iwctl",        NULL };
+const char *spcmd8[] = {"alacritty",  "--class", "btctl,btctl",       "-e", "bluetoothctl", NULL };
 
 static Sp scratchpads[] = {
    /* name          cmd  */
@@ -118,7 +119,8 @@ static Sp scratchpads[] = {
    {"galculator",   spcmd4},
    {"calcurse",     spcmd5},
    {IMG_VIEWER,     spcmd6},
-   {"iwd",          spcmd7},
+   {"iwctl",        spcmd7},
+   {"btctl",        spcmd8},
 };
 
 /* Tags
@@ -194,7 +196,8 @@ static const Rule rules[] = {
 	RULE(.class = "Galculator",        .tags = SPTAG(3), .isfloating = 1)
 	RULE(.class = "calcurse",          .tags = SPTAG(4), .isfloating = 1)
 	RULE(.class = IMG_VIEWER,          .tags = SPTAG(5), .isfloating = 1)
-	RULE(.class = "iwd",               .tags = SPTAG(6), .isfloating = 1)
+	RULE(.class = "iwctl",             .tags = SPTAG(6), .isfloating = 1)
+	RULE(.class = "btctl",             .tags = SPTAG(7), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",               .isfloating = 1)
@@ -445,7 +448,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_g,          togglescratch,          {.ui = 3 } }, // galculator
 	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } }, // calendar
 	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5 } }, // qimgv
-	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6 } }, // iwd
+	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6 } }, // iwctl
+	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 7 } }, // btctl
 	// { MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
 	// { MODKEY|ShiftMask,               XK_grave,      removescratch,          {.ui = 0 } },
 
