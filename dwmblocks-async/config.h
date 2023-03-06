@@ -13,8 +13,8 @@ const Block blocks[] = {
 	BLOCK(SCRIPTS "disk.sh -r",           10,      0),
 	BLOCK(SCRIPTS "disk.sh -u",           10,      0),
 	BLOCK(SCRIPTS "bat-dwm.sh",           5,       0),
-	BLOCK(SCRIPTS "wifi.sh",              5,       0),
 	BLOCK(SCRIPTS "calendar.sh",          10,      6),
 	BLOCK(SCRIPTS "time.sh",              5,       0),
 	BLOCK(SCRIPTS "kbd.sh",               0,       5),
+	BLOCK(SCRIPTS "wifi.sh",              5,       0),
 };
