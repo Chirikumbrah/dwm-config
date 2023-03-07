@@ -101,6 +101,7 @@ static char *colors[][ColCount] = {
 
 // User apps
 #define IMG_VIEWER "qimgv"
+#define PDF_VIEWER "qpdfview"
 
 const char *spcmd1[] = {"alacritty",  "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
 const char *spcmd2[] = {"keepassxc",  NULL };
@@ -110,6 +111,7 @@ const char *spcmd5[] = {"alacritty",  "--class", "calcurse,calcurse", "-e", "cal
 const char *spcmd6[] = {IMG_VIEWER,   NULL };
 const char *spcmd7[] = {"alacritty",  "--class", "iwctl,iwctl",       "-e", "iwctl",        NULL };
 const char *spcmd8[] = {"alacritty",  "--class", "btctl,btctl",       "-e", "bluetoothctl", NULL };
+const char *spcmd9[] = {PDF_VIEWER,   NULL };
 
 static Sp scratchpads[] = {
    /* name          cmd  */
@@ -121,6 +123,7 @@ static Sp scratchpads[] = {
    {IMG_VIEWER,     spcmd6},
    {"iwctl",        spcmd7},
    {"btctl",        spcmd8},
+   {PDF_VIEWER,     spcmd9},
 };
 
 /* Tags
@@ -198,6 +201,7 @@ static const Rule rules[] = {
 	RULE(.class = IMG_VIEWER,          .tags = SPTAG(5), .isfloating = 1)
 	RULE(.class = "iwctl",             .tags = SPTAG(6), .isfloating = 1)
 	RULE(.class = "btctl",             .tags = SPTAG(7), .isfloating = 1)
+	RULE(.class = PDF_VIEWER,          .tags = SPTAG(8), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",               .isfloating = 1)
@@ -247,7 +251,6 @@ static const Rule rules[] = {
 	RULE(.class = "DesktopEditors",              .tags = 1 << 6)
 	RULE(.class = "Rustdesk",                    .tags = 1 << 6)
 	RULE(.class = "Zathura",                     .tags = 1 << 6)
-	RULE(.class = "qpdfview",                    .tags = 1 << 6)
   // EIGHTH
 	RULE(.class = "discord",                     .tags = 1 << 7)
 	RULE(.class = "Skype",                       .tags = 1 << 7)
@@ -448,9 +451,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2 } }, // music player
 	{ MODKEY|ShiftMask,               XK_g,          togglescratch,          {.ui = 3 } }, // galculator
 	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } }, // calendar
-	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5 } }, // qimgv
+	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5 } }, // IMG_VIEWER
 	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6 } }, // iwctl
 	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 7 } }, // btctl
+	{ MODKEY|ShiftMask,               XK_d,          togglescratch,          {.ui = 8 } }, // PDF_VIEWER
 	// { MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
 	// { MODKEY|ShiftMask,               XK_grave,      removescratch,          {.ui = 0 } },
 
@@ -484,7 +488,6 @@ static const Key keys[] = {
 
   // console apps
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                           },
-  { MODKEY|ShiftMask,     XK_d,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh qpdfview")                               },
 
   // gui apps
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
@@ -510,10 +513,13 @@ static const Key keys[] = {
   { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
   { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
 
-   // changing keyboard layout
+  // changing keyboard layout
 	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
 	{ ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
 	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && pkill -RTMIN+5 dwmblocks"                ) },
+
+	// bluetooth indicator
+	{ 0,                     XF86XK_Bluetooth,         	spawn,	SHCMD("pkill -RTMIN+7 dwmblocks"                                         ) },
 
 	// // sbar
 	// // audio controls
