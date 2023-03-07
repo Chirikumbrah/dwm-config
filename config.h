@@ -247,6 +247,7 @@ static const Rule rules[] = {
 	RULE(.class = "DesktopEditors",              .tags = 1 << 6)
 	RULE(.class = "Rustdesk",                    .tags = 1 << 6)
 	RULE(.class = "Zathura",                     .tags = 1 << 6)
+	RULE(.class = "qpdfview",                    .tags = 1 << 6)
   // EIGHTH
 	RULE(.class = "discord",                     .tags = 1 << 7)
 	RULE(.class = "Skype",                       .tags = 1 << 7)
@@ -483,7 +484,7 @@ static const Key keys[] = {
 
   // console apps
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                           },
-  { MODKEY|ShiftMask,     XK_z,                       spawn,	SHCMD("zathura"                                  )                         },
+  { MODKEY|ShiftMask,     XK_d,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh qpdfview")                               },
 
   // gui apps
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
