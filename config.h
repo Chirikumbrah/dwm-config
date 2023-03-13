@@ -109,7 +109,7 @@ const char *spcmd3[] = {"audacious",  NULL };
 const char *spcmd4[] = {"galculator", NULL };
 const char *spcmd5[] = {"alacritty",  "--class", "calcurse,calcurse", "-e", "calcurse",     NULL };
 const char *spcmd6[] = {IMG_VIEWER,   NULL };
-const char *spcmd7[] = {"alacritty",  "--class", "iwctl,iwctl",       "-e", "iwctl",        NULL };
+const char *spcmd7[] = {"alacritty",  "--class", "nmtui,nmtui",       "-e", "nmtui",        NULL };
 const char *spcmd8[] = {"alacritty",  "--class", "btctl,btctl",       "-e", "bluetoothctl", NULL };
 const char *spcmd9[] = {PDF_VIEWER,   NULL };
 
@@ -121,7 +121,7 @@ static Sp scratchpads[] = {
    {"galculator",   spcmd4},
    {"calcurse",     spcmd5},
    {IMG_VIEWER,     spcmd6},
-   {"iwctl",        spcmd7},
+   {"nmtui",        spcmd7},
    {"btctl",        spcmd8},
    {PDF_VIEWER,     spcmd9},
 };
@@ -199,7 +199,7 @@ static const Rule rules[] = {
 	RULE(.class = "Galculator",        .tags = SPTAG(3), .isfloating = 1)
 	RULE(.class = "calcurse",          .tags = SPTAG(4), .isfloating = 1)
 	RULE(.class = IMG_VIEWER,          .tags = SPTAG(5), .isfloating = 1)
-	RULE(.class = "iwctl",             .tags = SPTAG(6), .isfloating = 1)
+	RULE(.class = "nmtui",             .tags = SPTAG(6), .isfloating = 1)
 	RULE(.class = "btctl",             .tags = SPTAG(7), .isfloating = 1)
 	RULE(.class = PDF_VIEWER,          .tags = SPTAG(8), .isfloating = 1)
 
@@ -453,7 +453,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_g,          togglescratch,          {.ui = 3 } }, // galculator
 	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } }, // calendar
 	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5 } }, // IMG_VIEWER
-	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6 } }, // iwctl
+	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6 } }, // nmtui
 	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 7 } }, // btctl
 	{ MODKEY|ShiftMask,               XK_d,          togglescratch,          {.ui = 8 } }, // PDF_VIEWER
 	// { MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
