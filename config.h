@@ -313,8 +313,6 @@ static const Layout layouts[] = {
 #define STACKKEYS(MOD,ACTION) \
 	{ MOD, XK_Left,  ACTION##stack, {.i = INC(+1) } }, \
 	{ MOD, XK_Right, ACTION##stack, {.i = INC(-1) } }, \
-	{ MOD, XK_l,     ACTION##stack, {.i = INC(+1) } }, \
-	{ MOD, XK_h,     ACTION##stack, {.i = INC(-1) } }, \
 	{ MOD, XK_s,     ACTION##stack, {.i = PREVSEL } }, \
 	{ MOD, XK_w,     ACTION##stack, {.i = 0 } }, \
 	{ MOD, XK_e,     ACTION##stack, {.i = 1 } }, \
@@ -341,20 +339,25 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_i,          incnmaster,             {.i = +1 } },
 	{ MODKEY,                         XK_d,          incnmaster,             {.i = -1 } },
     
-    // resizing windows
-	{ MODKEY|ShiftMask,               XK_h,          setmfact,               {.f = -0.05} },
-	{ MODKEY|ShiftMask,               XK_l,          setmfact,               {.f = +0.05} },
+  // resizing windows
+	{ MODKEY|ShiftMask,               XK_Left,       setmfact,               {.f = -0.05} },
+	{ MODKEY|ShiftMask,               XK_Right,      setmfact,               {.f = +0.05} },
 
-    // changing focus
+	{ MODKEY|ShiftMask|ControlMask,   XK_Up,         exresize,               {.v = (int []){   0,  25 }}},  /* XK_KP_Up,    */
+	{ MODKEY|ShiftMask|ControlMask,   XK_Down,       exresize,               {.v = (int []){   0, -25 }}},  /* XK_KP_Down,  */
+	{ MODKEY|ShiftMask|ControlMask,   XK_Right,      exresize,               {.v = (int []){  25,   0 }}},  /* XK_KP_Right, */
+	{ MODKEY|ShiftMask|ControlMask,   XK_Left,       exresize,               {.v = (int []){ -25,   0 }}},  /* XK_KP_Left,  */
+	{ MODKEY|Mod1Mask|ControlMask,    XK_Up,         exresize,               {.v = (int []){  25,  25 }}},  /* XK_KP_Begin, */
+	{ MODKEY|Mod1Mask|ControlMask,    XK_Down,       exresize,               {.v = (int []){ -25, -25 }}},  /* XK_KP_Begin, */
+
+  // changing focus
 	{ MODKEY,                         XK_Up,         focusstack,             {.i = +1 } },
 	{ MODKEY,                         XK_Down,       focusstack,             {.i = -1 } },
-	{ MODKEY,                         XK_k,          focusstack,             {.i = +1 } },
-	{ MODKEY,                         XK_j,          focusstack,             {.i = -1 } },
 	STACKKEYS(MODKEY,                                focus)
 
   // moving windows
-  { MODKEY|ControlMask,             XK_h,          movestack,              {.i = +1 } },
- 	{ MODKEY|ControlMask,             XK_l,          movestack,              {.i = -1 } },
+  // { MODKEY|ControlMask,             XK_h,          movestack,              {.i = +1 } },
+ 	// { MODKEY|ControlMask,             XK_l,          movestack,              {.i = -1 } },
 	STACKKEYS(MODKEY|ControlMask,                    push)
 
 	{ Mod1Mask|ControlMask,           XK_7,          explace,                {.ui = EX_NW }},   /* XK_KP_Home,  */
@@ -399,13 +402,6 @@ static const Key keys[] = {
 	// { MODKEY|Mod1Mask|ShiftMask,      XK_9,          incrovgaps,             {.i = -1 } },
 	// { MODKEY|Mod1Mask,                XK_0,          togglegaps,             {0} },
 	// { MODKEY|Mod1Mask|ShiftMask,      XK_0,          defaultgaps,            {0} },
-
-	{ MODKEY|ShiftMask,               XK_Up,         exresize,               {.v = (int []){   0,  25 }}},  /* XK_KP_Up,    */
-	{ MODKEY|ShiftMask,               XK_Down,       exresize,               {.v = (int []){   0, -25 }}},  /* XK_KP_Down,  */
-	{ MODKEY|ShiftMask,               XK_Right,      exresize,               {.v = (int []){  25,   0 }}},  /* XK_KP_Right, */
-	{ MODKEY|ShiftMask,               XK_Left,       exresize,               {.v = (int []){ -25,   0 }}},  /* XK_KP_Left,  */
-	{ MODKEY|ShiftMask|ControlMask,   XK_Up,         exresize,               {.v = (int []){  25,  25 }}},  /* XK_KP_Begin, */
-	{ MODKEY|ShiftMask|ControlMask,   XK_Down,       exresize,               {.v = (int []){ -25, -25 }}},  /* XK_KP_Begin, */
 
     // cycling tags
 	{ MODKEY,                         XK_Tab,        shiftviewclients,       { .i = +1 } },
