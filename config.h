@@ -189,31 +189,31 @@ static const Rule rules[] = {
 	 *	WM_WINDOW_ROLE(STRING) = role
 	 *	_NET_WM_WINDOW_TYPE(ATOM) = wintype
 	 */
-	RULE(.wintype = WTYPE "DIALOG",    .isfloating = 1)
-	RULE(.wintype = WTYPE "UTILITY",   .isfloating = 1)
-	RULE(.wintype = WTYPE "TOOLBAR",   .isfloating = 1)
-	RULE(.wintype = WTYPE "SPLASH",    .isfloating = 1)
+	RULE(.wintype = WTYPE "DIALOG",              .isfloating = 1)
+	RULE(.wintype = WTYPE "UTILITY",             .isfloating = 1)
+	RULE(.wintype = WTYPE "TOOLBAR",             .isfloating = 1)
+	RULE(.wintype = WTYPE "SPLASH",              .isfloating = 1)
     
   // scratchpads
-	RULE(.class = "spterm",            .tags = SPTAG(0), .isfloating = 1)
-	RULE(.class = "KeePassXC",         .tags = SPTAG(1), .isfloating = 1)
-	RULE(.class = "Audacious",         .tags = SPTAG(2), .isfloating = 1)
-	RULE(.class = "Galculator",        .tags = SPTAG(3), .isfloating = 1)
-	RULE(.class = "calcurse",          .tags = SPTAG(4), .isfloating = 1)
-	RULE(.class = IMG_VIEWER,          .tags = SPTAG(5), .isfloating = 1)
-	RULE(.class = "nmtui",             .tags = SPTAG(6), .isfloating = 1)
-	RULE(.class = "btctl",             .tags = SPTAG(7), .isfloating = 1)
-	RULE(.class = PDF_VIEWER,          .tags = SPTAG(8), .isfloating = 1)
-	RULE(.class = "Telegram",          .tags = SPTAG(9), .isfloating = 1)
+	RULE(.class = "spterm",                      .tags = SPTAG(0), .isfloating = 1)
+	RULE(.class = "KeePassXC",                   .tags = SPTAG(1), .isfloating = 1)
+	RULE(.class = "Audacious",                   .tags = SPTAG(2), .isfloating = 1)
+	RULE(.class = "Galculator",                  .tags = SPTAG(3), .isfloating = 1)
+	RULE(.class = "calcurse",                    .tags = SPTAG(4), .isfloating = 1)
+	RULE(.class = IMG_VIEWER,                    .tags = SPTAG(5), .isfloating = 1)
+	RULE(.class = "nmtui",                       .tags = SPTAG(6), .isfloating = 1)
+	RULE(.class = "btctl",                       .tags = SPTAG(7), .isfloating = 1)
+	RULE(.class = PDF_VIEWER,                    .tags = SPTAG(8), .isfloating = 1)
+	RULE(.class = "Telegram",                    .tags = SPTAG(9), .isfloating = 1)
 
   // floating windows
-	RULE(.class = "feh",                  .isfloating = 1)
-	RULE(.class = "vlc",                  .isfloating = 1)
-	RULE(.class = "mpv",                  .isfloating = 1)
-	RULE(.class = "ffplay",               .isfloating = 1)
-	RULE(.class = "QjackCtl",             .isfloating = 1)
-	RULE(.class = "Blueman-manager",      .isfloating = 1)
-	RULE(.class = "Nm-connection-editor", .isfloating = 1)
+	RULE(.class = "feh",                         .isfloating = 1)
+	RULE(.class = "vlc",                         .isfloating = 1)
+	RULE(.class = "mpv",                         .isfloating = 1)
+	RULE(.class = "ffplay",                      .isfloating = 1)
+	RULE(.class = "QjackCtl",                    .isfloating = 1)
+	RULE(.class = "Blueman-manager",             .isfloating = 1)
+	RULE(.class = "Nm-connection-editor",        .isfloating = 1)
 
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
@@ -281,12 +281,12 @@ static const Rule rules[] = {
  *    name - does nothing, intended for visual clue and for logging / debugging
  */
 static const BarRule barrules[] = {
-	/* monitor   bar    alignment         widthfunc                 drawfunc                clickfunc                hoverfunc                name */
-	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
-	{  0,        0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
-	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
-	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status2d,           draw_status2d,          click_statuscmd,         NULL,                    "status2d" },
-	{ -1,        0,     BAR_ALIGN_NONE,   width_awesomebar,         draw_awesomebar,        click_awesomebar,        NULL,                    "awesomebar" },
+	/* monitor   bar    alignment         widthfunc          drawfunc          clickfunc          hoverfunc    name */
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,        draw_tags,        click_tags,        hover_tags,  "tags"       },
+	{  0,        0,     BAR_ALIGN_RIGHT,  width_systray,     draw_systray,     click_systray,     NULL,        "systray"    },
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,    draw_ltsymbol,    click_ltsymbol,    NULL,        "layout"     },
+	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status2d,    draw_status2d,    click_statuscmd,   NULL,        "status2d"   },
+	{ -1,        0,     BAR_ALIGN_NONE,   width_awesomebar,  draw_awesomebar,  click_awesomebar,  NULL,        "awesomebar" },
 };
 
 /* layout(s) */
@@ -299,10 +299,10 @@ static const int   lockfullscreen = 1;    /* 1 will force focus on the fullscree
 
 static const Layout layouts[] = {
 	/* symbol   arrange function */
-	{ "[T]",    tile },    /* first entry is default */
-	{ "[F]",    NULL },    /* no layout function means floating behavior */
-	{ "[M]",    monocle },
-	{ NULL,     NULL },
+	{ "[T]",    tile    },    /* first entry is default */
+	{ "[F]",    NULL    },    /* no layout function means floating behavior */
+ 	{ "[M]",    monocle },
+	{ NULL,     NULL    },
 };
 
 
@@ -315,13 +315,13 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 #define STACKKEYS(MOD,ACTION) \
-	{ MOD, XK_Up,  ACTION##stack, {.i = INC(+1) } }, \
-	{ MOD, XK_Down, ACTION##stack, {.i = INC(-1) } }, \
+	{ MOD, XK_Up,    ACTION##stack, {.i = INC(+1) } }, \
+	{ MOD, XK_Down,  ACTION##stack, {.i = INC(-1) } }, \
 	{ MOD, XK_s,     ACTION##stack, {.i = PREVSEL } }, \
-	{ MOD, XK_w,     ACTION##stack, {.i = 0 } }, \
-	{ MOD, XK_e,     ACTION##stack, {.i = 1 } }, \
-	{ MOD, XK_a,     ACTION##stack, {.i = 2 } }, \
-	{ MOD, XK_z,     ACTION##stack, {.i = -1 } },
+	{ MOD, XK_w,     ACTION##stack, {.i = 0       } }, \
+	{ MOD, XK_e,     ACTION##stack, {.i = 1       } }, \
+	{ MOD, XK_a,     ACTION##stack, {.i = 2       } }, \
+	{ MOD, XK_z,     ACTION##stack, {.i = -1      } },
 
 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -334,74 +334,74 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const Key keys[] = {
 	/* modifier                       key            function                argument */
 	{ MODKEY,                         XK_Return,     spawn,                  {.v = termcmd } },
-	{ MODKEY,                         XK_b,          togglebar,              {0} },
-	{ MODKEY,                         XK_i,          incnmaster,             {.i = +1 } },
-	{ MODKEY,                         XK_d,          incnmaster,             {.i = -1 } },
+	{ MODKEY,                         XK_b,          togglebar,              {0}             },
+	{ MODKEY,                         XK_i,          incnmaster,             {.i = +1 }      },
+	{ MODKEY,                         XK_d,          incnmaster,             {.i = -1 }      },
     
   // resizing tiling windows
-	{ MODKEY,                         XK_Left,       setmfact,               {.f = -0.05} },
-	{ MODKEY,                         XK_Right,      setmfact,               {.f = +0.05} },
+	{ MODKEY,                         XK_Left,       setmfact,               {.f = -0.05}    },
+	{ MODKEY,                         XK_Right,      setmfact,               {.f = +0.05}    },
   // resizing floating windows
-	{ MODKEY|ControlMask,             XK_k,          exresize,               {.v = (int []){   0,  25 }}},  /* Up,    */
-	{ MODKEY|ControlMask,             XK_j,          exresize,               {.v = (int []){   0, -25 }}},  /* Down,  */
-	{ MODKEY|ControlMask,             XK_l,          exresize,               {.v = (int []){  25,   0 }}},  /* Right, */
-	{ MODKEY|ControlMask,             XK_h,          exresize,               {.v = (int []){ -25,   0 }}},  /* Left,  */
 	{ MODKEY,                         XK_k,          exresize,               {.v = (int []){  25,  25 }}},  /* Begin, */
 	{ MODKEY,                         XK_j,          exresize,               {.v = (int []){ -25, -25 }}},  /* Begin, */
+	{ MODKEY,                         XK_l,          exresize,               {.v = (int []){  25,   0 }}},  /* Right, */
+	{ MODKEY,                         XK_h,          exresize,               {.v = (int []){ -25,   0 }}},  /* Left,  */
+	// { MODKEY|ControlMask,             XK_k,          exresize,               {.v = (int []){   0,  25 }}},  /* Up,    */
+	// { MODKEY|ControlMask,             XK_j,          exresize,               {.v = (int []){   0, -25 }}},  /* Down,  */
 
   // changing focus
 	STACKKEYS(MODKEY,                                focus)
   // moving windows
 	STACKKEYS(MODKEY|ControlMask,                    push)
 
-	{ Mod1Mask|ControlMask,           XK_7,          explace,                {.ui = EX_NW }},   /* XK_KP_Home,  */
-	{ Mod1Mask|ControlMask,           XK_8,          explace,                {.ui = EX_N  }},   /* XK_KP_Up,    */
-	{ Mod1Mask|ControlMask,           XK_9,          explace,                {.ui = EX_NE }},   /* XK_KP_Prior, */
-	{ Mod1Mask|ControlMask,           XK_4,          explace,                {.ui = EX_W  }},   /* XK_KP_Left,  */
-	{ Mod1Mask|ControlMask,           XK_5,          explace,                {.ui = EX_C  }},   /* XK_KP_Begin, */
-	{ Mod1Mask|ControlMask,           XK_6,          explace,                {.ui = EX_E  }},   /* XK_KP_Right, */
-	{ Mod1Mask|ControlMask,           XK_1,          explace,                {.ui = EX_SW }},   /* XK_KP_End,   */
-	{ Mod1Mask|ControlMask,           XK_2,          explace,                {.ui = EX_S  }},   /* XK_KP_Down,  */
-	{ Mod1Mask|ControlMask,           XK_3,          explace,                {.ui = EX_SE }},   /* XK_KP_Next,  */
+	{ Mod1Mask,                       XK_7,          explace,                {.ui = EX_NW }},   /* XK_KP_Home,  */
+	{ Mod1Mask,                       XK_8,          explace,                {.ui = EX_N  }},   /* XK_KP_Up,    */
+	{ Mod1Mask,                       XK_9,          explace,                {.ui = EX_NE }},   /* XK_KP_Prior, */
+	{ Mod1Mask,                       XK_4,          explace,                {.ui = EX_W  }},   /* XK_KP_Left,  */
+	{ Mod1Mask,                       XK_5,          explace,                {.ui = EX_C  }},   /* XK_KP_Begin, */
+	{ Mod1Mask,                       XK_6,          explace,                {.ui = EX_E  }},   /* XK_KP_Right, */
+	{ Mod1Mask,                       XK_1,          explace,                {.ui = EX_SW }},   /* XK_KP_End,   */
+	{ Mod1Mask,                       XK_2,          explace,                {.ui = EX_S  }},   /* XK_KP_Down,  */
+	{ Mod1Mask,                       XK_3,          explace,                {.ui = EX_SE }},   /* XK_KP_Next,  */
 
-    // cycling tags
+  // cycling tags
 	{ MODKEY,                         XK_Tab,        shiftviewclients,       { .i = +1 } },
 	{ MODKEY|ShiftMask,               XK_Tab,        shiftviewclients,       { .i = -1 } },
 
-    // cycling layouts
+  // cycling layouts
 	{ Mod1Mask,                       XK_Tab,        cyclelayout,            {.i = +1 } },
 	{ Mod1Mask|ControlMask,           XK_Tab,        cyclelayout,            {.i = -1 } },
 
-    // kill app
+  // kill app
 	{ MODKEY,                         XK_x,          killclient,             {0} },
 
-    // quit from dwm
+  // quit from dwm
 	{ MODKEY|ShiftMask,               XK_q,          quit,                   {0} },
 
-    // reload dwm
+  // reload dwm
 	{ MODKEY,                         XK_r,          quit,                   {1} },
 	{ MODKEY|ShiftMask,               XK_F5,         xrdb,                   {.v = NULL } },
 
-    // set tile layout
+  // set tile layout
 	{ MODKEY|Mod1Mask,                XK_t,          setlayout,              {.v = &layouts[0]} },
-    // set float layout
+  // set float layout
 	{ MODKEY|Mod1Mask,                XK_f,          setlayout,              {.v = &layouts[1]} },
-    // set monocle layout
+  // set monocle layout
 	{ MODKEY|Mod1Mask,                XK_m,          setlayout,              {.v = &layouts[2]} },
 
-    // changing layouts
+  // changing layouts
 	{ MODKEY|Mod1Mask,                XK_p,          setlayout,              {0} },
 
-    // toggle fullscreen
+  // toggle fullscreen
   { MODKEY,                         XK_f,          fullscreen,             {0} },
 
-    // toggle sticky mode
+  // toggle sticky mode
 	{ MODKEY,                         XK_s,          togglesticky,           {0} },
 
-    // floating mode for window
+  // floating mode for window
 	{ MODKEY|ControlMask,             XK_f,          togglefloating,         {0} },
 
-    // scratchpads
+  // scratchpads
 	{ MODKEY|ShiftMask,               XK_Return,     togglescratch,          {.ui = 0 } }, // terminal
 	{ MODKEY|ShiftMask,               XK_p,          togglescratch,          {.ui = 1 } }, // keepass
 	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2 } }, // music player
@@ -416,11 +416,11 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_0,          view,                   {.ui = ~SPTAGMASK } },
 	{ MODKEY|ShiftMask,               XK_0,          tag,                    {.ui = ~SPTAGMASK } },
 
-    // switching between monitors
+  // switching between monitors
 	{ MODKEY,                         XK_comma,      focusmon,               {.i = -1 } },
 	{ MODKEY,                         XK_period,     focusmon,               {.i = +1 } },
 
-    // moving window between monitors
+  // moving window between monitors
 	{ MODKEY|ShiftMask,               XK_comma,      tagmon,                 {.i = -1 } },
 	{ MODKEY|ShiftMask,               XK_period,     tagmon,                 {.i = +1 } },
 
