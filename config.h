@@ -315,8 +315,8 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 #define STACKKEYS(MOD,ACTION) \
-	{ MOD, XK_Left,  ACTION##stack, {.i = INC(+1) } }, \
-	{ MOD, XK_Right, ACTION##stack, {.i = INC(-1) } }, \
+	{ MOD, XK_Up,  ACTION##stack, {.i = INC(+1) } }, \
+	{ MOD, XK_Down, ACTION##stack, {.i = INC(-1) } }, \
 	{ MOD, XK_s,     ACTION##stack, {.i = PREVSEL } }, \
 	{ MOD, XK_w,     ACTION##stack, {.i = 0 } }, \
 	{ MOD, XK_e,     ACTION##stack, {.i = 1 } }, \
@@ -324,17 +324,12 @@ static const Layout layouts[] = {
 	{ MOD, XK_z,     ACTION##stack, {.i = -1 } },
 
 
-/* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-
 #define SCRIPTS "$HOME/.scripts/"
+#define STATUSBAR "dwmblocks"
 
 /* commands */
 static const char *termcmd[]  = { "alacritty", NULL };
-
-/* This defines the name of the executable that handles the bar (used for signalling purposes) */
-#define STATUSBAR "dwmblocks"
-
 
 static const Key keys[] = {
 	/* modifier                       key            function                argument */
@@ -343,25 +338,20 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_i,          incnmaster,             {.i = +1 } },
 	{ MODKEY,                         XK_d,          incnmaster,             {.i = -1 } },
     
-  // resizing windows
-	{ MODKEY|ShiftMask,               XK_Left,       setmfact,               {.f = -0.05} },
-	{ MODKEY|ShiftMask,               XK_Right,      setmfact,               {.f = +0.05} },
-
-	{ MODKEY|ShiftMask|ControlMask,   XK_Up,         exresize,               {.v = (int []){   0,  25 }}},  /* XK_KP_Up,    */
-	{ MODKEY|ShiftMask|ControlMask,   XK_Down,       exresize,               {.v = (int []){   0, -25 }}},  /* XK_KP_Down,  */
-	{ MODKEY|ShiftMask|ControlMask,   XK_Right,      exresize,               {.v = (int []){  25,   0 }}},  /* XK_KP_Right, */
-	{ MODKEY|ShiftMask|ControlMask,   XK_Left,       exresize,               {.v = (int []){ -25,   0 }}},  /* XK_KP_Left,  */
-	{ MODKEY|Mod1Mask|ControlMask,    XK_Up,         exresize,               {.v = (int []){  25,  25 }}},  /* XK_KP_Begin, */
-	{ MODKEY|Mod1Mask|ControlMask,    XK_Down,       exresize,               {.v = (int []){ -25, -25 }}},  /* XK_KP_Begin, */
+  // resizing tiling windows
+	{ MODKEY,                         XK_Left,       setmfact,               {.f = -0.05} },
+	{ MODKEY,                         XK_Right,      setmfact,               {.f = +0.05} },
+  // resizing floating windows
+	{ MODKEY|ControlMask,             XK_k,          exresize,               {.v = (int []){   0,  25 }}},  /* Up,    */
+	{ MODKEY|ControlMask,             XK_j,          exresize,               {.v = (int []){   0, -25 }}},  /* Down,  */
+	{ MODKEY|ControlMask,             XK_l,          exresize,               {.v = (int []){  25,   0 }}},  /* Right, */
+	{ MODKEY|ControlMask,             XK_h,          exresize,               {.v = (int []){ -25,   0 }}},  /* Left,  */
+	{ MODKEY,                         XK_k,          exresize,               {.v = (int []){  25,  25 }}},  /* Begin, */
+	{ MODKEY,                         XK_j,          exresize,               {.v = (int []){ -25, -25 }}},  /* Begin, */
 
   // changing focus
-	{ MODKEY,                         XK_Up,         focusstack,             {.i = +1 } },
-	{ MODKEY,                         XK_Down,       focusstack,             {.i = -1 } },
 	STACKKEYS(MODKEY,                                focus)
-
   // moving windows
-  // { MODKEY|ControlMask,             XK_h,          movestack,              {.i = +1 } },
- 	// { MODKEY|ControlMask,             XK_l,          movestack,              {.i = -1 } },
 	STACKKEYS(MODKEY|ControlMask,                    push)
 
 	{ Mod1Mask|ControlMask,           XK_7,          explace,                {.ui = EX_NW }},   /* XK_KP_Home,  */
@@ -373,39 +363,6 @@ static const Key keys[] = {
 	{ Mod1Mask|ControlMask,           XK_1,          explace,                {.ui = EX_SW }},   /* XK_KP_End,   */
 	{ Mod1Mask|ControlMask,           XK_2,          explace,                {.ui = EX_S  }},   /* XK_KP_Down,  */
 	{ Mod1Mask|ControlMask,           XK_3,          explace,                {.ui = EX_SE }},   /* XK_KP_Next,  */
-
-
-	// useless zoom
-	// { MODKEY|ControlMask|ShiftMask,   XK_Return,     zoom,                   {0} },
-
-	// useless windows resizing
-	// { Mod1Mask|ControlMask,           XK_6,          togglehorizontalexpand, {.i = +1} },  /* XK_KP_Right, */
-	// { Mod1Mask|ControlMask,           XK_3,          togglehorizontalexpand, {.i =  0} },  /* XK_KP_Next,  */
-	// { Mod1Mask|ControlMask,           XK_4,          togglehorizontalexpand, {.i = -1} },  /* XK_KP_Left,  */
-	// { Mod1Mask|ControlMask,           XK_8,          toggleverticalexpand,   {.i = +1} },  /* XK_KP_Up,    */
-	// { Mod1Mask|ControlMask,           XK_1,          toggleverticalexpand,   {.i =  0} },  /* XK_KP_End,   */
-	// { Mod1Mask|ControlMask,           XK_2,          toggleverticalexpand,   {.i = -1} },  /* XK_KP_Down,  */
-	// { Mod1Mask|ControlMask,           XK_9,          togglemaximize,         {.i = -1} },  /* XK_KP_Prior, */
-	// { Mod1Mask|ControlMask,           XK_7,          togglemaximize,         {.i = +1} },  /* XK_KP_Home,  */
-	// { Mod1Mask|ControlMask,           XK_5,          togglemaximize,         {.i =  0} },  /* XK_KP_Begin, */
-
-	// useless gaps manipulations
-	// { MODKEY|Mod1Mask,                XK_u,          incrgaps,               {.i = +1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,      XK_u,          incrgaps,               {.i = -1 } },
-	// { MODKEY|Mod1Mask,                XK_i,          incrigaps,              {.i = +1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,      XK_i,          incrigaps,              {.i = -1 } },
-	// { MODKEY|Mod1Mask,                XK_o,          incrogaps,              {.i = +1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,      XK_o,          incrogaps,              {.i = -1 } },
-	// { MODKEY|Mod1Mask,                XK_6,          incrihgaps,             {.i = +1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,      XK_6,          incrihgaps,             {.i = -1 } },
-	// { MODKEY|Mod1Mask,                XK_7,          incrivgaps,             {.i = +1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,      XK_7,          incrivgaps,             {.i = -1 } },
-	// { MODKEY|Mod1Mask,                XK_8,          incrohgaps,             {.i = +1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,      XK_8,          incrohgaps,             {.i = -1 } },
-	// { MODKEY|Mod1Mask,                XK_9,          incrovgaps,             {.i = +1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,      XK_9,          incrovgaps,             {.i = -1 } },
-	// { MODKEY|Mod1Mask,                XK_0,          togglegaps,             {0} },
-	// { MODKEY|Mod1Mask|ShiftMask,      XK_0,          defaultgaps,            {0} },
 
     // cycling tags
 	{ MODKEY,                         XK_Tab,        shiftviewclients,       { .i = +1 } },
@@ -426,16 +383,14 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_F5,         xrdb,                   {.v = NULL } },
 
     // set tile layout
-	{ MODKEY|Mod1Mask|ControlMask,    XK_t,          setlayout,              {.v = &layouts[0]} },
-
+	{ MODKEY|Mod1Mask,                XK_t,          setlayout,              {.v = &layouts[0]} },
     // set float layout
-	{ MODKEY|Mod1Mask|ControlMask,    XK_f,          setlayout,              {.v = &layouts[1]} },
-
+	{ MODKEY|Mod1Mask,                XK_f,          setlayout,              {.v = &layouts[1]} },
     // set monocle layout
-	{ MODKEY|Mod1Mask|ControlMask,    XK_m,          setlayout,              {.v = &layouts[2]} },
+	{ MODKEY|Mod1Mask,                XK_m,          setlayout,              {.v = &layouts[2]} },
 
     // changing layouts
-	{ MODKEY|Mod1Mask|ControlMask,    XK_p,          setlayout,              {0} },
+	{ MODKEY|Mod1Mask,                XK_p,          setlayout,              {0} },
 
     // toggle fullscreen
   { MODKEY,                         XK_f,          fullscreen,             {0} },
@@ -443,7 +398,7 @@ static const Key keys[] = {
     // toggle sticky mode
 	{ MODKEY,                         XK_s,          togglesticky,           {0} },
 
-    // floating mode for wondow
+    // floating mode for window
 	{ MODKEY|ControlMask,             XK_f,          togglefloating,         {0} },
 
     // scratchpads
@@ -457,8 +412,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 7 } }, // btctl
 	{ MODKEY|ShiftMask,               XK_d,          togglescratch,          {.ui = 8 } }, // PDF_VIEWER
 	{ MODKEY|ShiftMask,               XK_t,          togglescratch,          {.ui = 9 } }, // telegram
-	// { MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
-	// { MODKEY|ShiftMask,               XK_grave,      removescratch,          {.ui = 0 } },
 
 	{ MODKEY,                         XK_0,          view,                   {.ui = ~SPTAGMASK } },
 	{ MODKEY|ShiftMask,               XK_0,          tag,                    {.ui = ~SPTAGMASK } },
@@ -486,7 +439,6 @@ static const Key keys[] = {
 	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh apps")                               },
 	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh powermenu")                          },
 	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh clipmenu")                           },
-	// { Mod1Mask,             XK_n,                       spawn,	SHCMD(SCRIPTS "dmenu/netwokmanager-dmenu.py")                              },
 
   // console apps
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                           },
@@ -494,7 +446,6 @@ static const Key keys[] = {
   // gui apps
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
   { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh pcmanfm-qt")                             },
-  // { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh telegram-desktop")                       },
 
 	// flatpak apps
 	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD("flatpak run net.cozic.joplin_desktop")                              },
@@ -504,7 +455,6 @@ static const Key keys[] = {
   { 0,                     XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh --partial")                       },
   { MODKEY,                XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh --full")                          },
 
-	// dwmblocks-async
 	// audio controls
 	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh up   && pkill -RTMIN+1 dwmblocks") },
 	{ 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh down && pkill -RTMIN+1 dwmblocks") },
@@ -522,22 +472,6 @@ static const Key keys[] = {
 
 	// bluetooth indicator
 	{ 0,                     XF86XK_Bluetooth,         	spawn,	SHCMD("pkill -RTMIN+7 dwmblocks"                                         ) },
-
-	// // sbar
-	// // audio controls
-	// { 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh up   && kill -35 $(cat /tmp/yrbar)") },
-	// { 0,                     XF86XK_AudioLowerVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh down && kill -35 $(cat /tmp/yrbar)") },
-	// { 0,                     XF86XK_AudioMute,      	  spawn,	SHCMD(SCRIPTS "system/control-volume.sh mute && kill -35 $(cat /tmp/yrbar)") },
-	// { 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD(SCRIPTS "system/control-volume.sh mic  && kill -36 $(cat /tmp/yrbar)") },
-
-  //  // brightness controls
-  //  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && kill -37 $(cat /tmp/yrbar)") },
-  //  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && kill -37 $(cat /tmp/yrbar)") },
-
-  //  // changing keyboard layout
-	// { Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("kill -38 $(cat /tmp/yrbar)"                                         ) },
-	// { ShiftMask,             XK_Alt_L,                 	spawn,	SHCMD("kill -38 $(cat /tmp/yrbar)"                                         ) },
-	// { 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && kill -38 $(cat /tmp/yrbar)"                ) },
 };
 
 
