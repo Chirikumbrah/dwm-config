@@ -103,27 +103,29 @@ static char *colors[][ColCount] = {
 #define IMG_VIEWER "qimgv"
 #define PDF_VIEWER "qpdfview"
 
-const char *spcmd1[] = {"alacritty",  "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
-const char *spcmd2[] = {"keepassxc",  NULL };
-const char *spcmd3[] = {"audacious",  NULL };
-const char *spcmd4[] = {"galculator", NULL };
-const char *spcmd5[] = {"alacritty",  "--class", "calcurse,calcurse", "-e", "calcurse",     NULL };
-const char *spcmd6[] = {IMG_VIEWER,   NULL };
-const char *spcmd7[] = {"alacritty",  "--class", "nmtui,nmtui",       "-e", "nmtui",        NULL };
-const char *spcmd8[] = {"alacritty",  "--class", "btctl,btctl",       "-e", "bluetoothctl", NULL };
-const char *spcmd9[] = {PDF_VIEWER,   NULL };
+const char *spcmd1[]  = {"alacritty",          "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
+const char *spcmd2[]  = {"keepassxc",          NULL };
+const char *spcmd3[]  = {"audacious",          NULL };
+const char *spcmd4[]  = {"galculator",         NULL };
+const char *spcmd5[]  = {"alacritty",          "--class", "calcurse,calcurse", "-e", "calcurse",     NULL };
+const char *spcmd6[]  = {IMG_VIEWER,           NULL };
+const char *spcmd7[]  = {"alacritty",          "--class", "nmtui,nmtui",       "-e", "nmtui",        NULL };
+const char *spcmd8[]  = {"alacritty",          "--class", "btctl,btctl",       "-e", "bluetoothctl", NULL };
+const char *spcmd9[]  = {PDF_VIEWER,           NULL };
+const char *spcmd10[] = {"telegram-desktop",   NULL };
 
 static Sp scratchpads[] = {
-   /* name          cmd  */
-   {"spterm",       spcmd1},
-   {"keepassxc",    spcmd2},
-   {"audacious",    spcmd3},
-   {"galculator",   spcmd4},
-   {"calcurse",     spcmd5},
-   {IMG_VIEWER,     spcmd6},
-   {"nmtui",        spcmd7},
-   {"btctl",        spcmd8},
-   {PDF_VIEWER,     spcmd9},
+   /* name              cmd  */
+   {"spterm",     spcmd1},
+   {"keepassxc",  spcmd2},
+   {"audacious",  spcmd3},
+   {"galculator", spcmd4},
+   {"calcurse",   spcmd5},
+   {IMG_VIEWER,   spcmd6},
+   {"nmtui",      spcmd7},
+   {"btctl",      spcmd8},
+   {PDF_VIEWER,   spcmd9},
+   {"telegram",   spcmd10},
 };
 
 /* Tags
@@ -202,6 +204,7 @@ static const Rule rules[] = {
 	RULE(.class = "nmtui",             .tags = SPTAG(6), .isfloating = 1)
 	RULE(.class = "btctl",             .tags = SPTAG(7), .isfloating = 1)
 	RULE(.class = PDF_VIEWER,          .tags = SPTAG(8), .isfloating = 1)
+	RULE(.class = "Telegram",          .tags = SPTAG(9), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",               .isfloating = 1)
@@ -227,7 +230,7 @@ static const Rule rules[] = {
 	RULE(.class = "Localsend_app",               .tags = 1 << 2)
 	RULE(.class = "qBittorrent",                 .tags = 1 << 2)
   // FOURTH
-	RULE(.class = "Telegram",                    .tags = 1 << 3)
+	// RULE(.class = "Telegram",                    .tags = 1 << 3)
 	RULE(.class = "Slack",                       .tags = 1 << 3)
   // FIFTH
 	RULE(.class = "Code",                        .tags = 1 << 4)
@@ -452,6 +455,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6 } }, // nmtui
 	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 7 } }, // btctl
 	{ MODKEY|ShiftMask,               XK_d,          togglescratch,          {.ui = 8 } }, // PDF_VIEWER
+	{ MODKEY|ShiftMask,               XK_t,          togglescratch,          {.ui = 9 } }, // telegram
 	// { MODKEY|ControlMask,             XK_grave,      setscratch,             {.ui = 0 } },
 	// { MODKEY|ShiftMask,               XK_grave,      removescratch,          {.ui = 0 } },
 
@@ -489,7 +493,7 @@ static const Key keys[] = {
   // gui apps
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
   { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh pcmanfm-qt")                             },
-  { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh telegram-desktop")                       },
+  // { MODKEY|ShiftMask,     XK_t,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh telegram-desktop")                       },
 
 	// flatpak apps
 	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD("flatpak run net.cozic.joplin_desktop")                              },
