@@ -15,7 +15,7 @@ const Block blocks[] = {
 	BLOCK(SCRIPTS "bat-dwm.sh",           5,       0),
 	BLOCK(SCRIPTS "calendar.sh",          10,      6),
 	BLOCK(SCRIPTS "time.sh",              5,       0),
-	BLOCK(SCRIPTS "kbd.sh",               0,       5),
+	BLOCK(SCRIPTS "kbd.sh",               10,      5),
 	// BLOCK(SCRIPTS "bluetooth.sh",         5,       7),
 	// BLOCK(SCRIPTS "wifi.sh",              5,       7),
 };
