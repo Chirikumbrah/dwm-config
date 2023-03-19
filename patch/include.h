@@ -8,6 +8,7 @@
 #include "bar_status.h"
 #include "bar_status2d.h"
 #include "bar_statuscmd.h"
+#include "bar_winicon.h"
 #include "bar_tags.h"
 #include "bar_tagpreview.h"
 #include "bar_wintitle.h"
@@ -18,12 +19,12 @@
 
 /* Other patches */
 #include "attachx.h"
-#include "cyclelayouts.h"
 #include "exresize.h"
 #include "fullscreen.h"
 #include "movestack.h"
 #include "pertag.h"
 #include "placemouse.h"
+#include "push.h"
 #include "restartsig.h"
 #include "scratchpad.h"
 #include "shift.h"

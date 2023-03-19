@@ -14,6 +14,8 @@ static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
 static const int vertpad                 = 10;  /* vertical padding of bar */
 static const int sidepad                 = 10;  /* horizontal padding of bar */
+#define ICONSIZE 20    /* icon size */
+#define ICONSPACING 5  /* space between icon and title */
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -200,7 +202,6 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ NULL,       NULL },
 };
 
 
@@ -248,6 +249,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	STACKKEYS(MODKEY,                              focus)
 	STACKKEYS(MODKEY|ShiftMask,                    push)
+	{ MODKEY|ControlMask,           XK_j,          pushdown,               {0} },
+	{ MODKEY|ControlMask,           XK_k,          pushup,                 {0} },
 	{ MODKEY,                       XK_i,          incnmaster,             {.i = +1 } },
 	{ MODKEY,                       XK_d,          incnmaster,             {.i = -1 } },
 	{ MODKEY,                       XK_h,          setmfact,               {.f = -0.05} },
@@ -321,8 +324,6 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_KP_9,       togglemaximize,         {.i = -1} },  /* XK_KP_Prior, */
 	{ MODKEY|ControlMask,           XK_KP_7,       togglemaximize,         {.i = +1} },  /* XK_KP_Home,  */
 	{ MODKEY|ControlMask,           XK_KP_5,       togglemaximize,         {.i =  0} },  /* XK_KP_Begin, */
-	{ MODKEY|ControlMask,           XK_comma,      cyclelayout,            {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_period,     cyclelayout,            {.i = +1 } },
 	TAGKEYS(                        XK_1,                                  0)
 	TAGKEYS(                        XK_2,                                  1)
 	TAGKEYS(                        XK_3,                                  2)

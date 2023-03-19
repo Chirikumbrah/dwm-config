@@ -198,7 +198,7 @@
  * https://github.com/AdamYuan/dwm-winicon
  * https://dwm.suckless.org/patches/winicon
  */
-#define BAR_WINICON_PATCH 0
+#define BAR_WINICON_PATCH 1
 
 /* Show window title in bar */
 #define BAR_WINTITLE_PATCH 1
@@ -555,7 +555,7 @@
 /* The cyclelayouts patch lets you cycle through all your layouts.
  * https://dwm.suckless.org/patches/cyclelayouts/
  */
-#define CYCLELAYOUTS_PATCH 1
+#define CYCLELAYOUTS_PATCH 0
 
 /* Make dwm respect _MOTIF_WM_HINTS property, and not draw borders around windows requesting
  * for it. Some applications use this property to notify window managers to not draw window
@@ -892,7 +892,7 @@
 /* This patch provides a way to move clients up and down inside the client list.
  * https://dwm.suckless.org/patches/push/
  */
-#define PUSH_PATCH 0
+#define PUSH_PATCH 1
 
 /* This patch provides a way to move clients up and down inside the client list,
  * but does not push up or down into the master area (except that it does not take

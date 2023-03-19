@@ -99,6 +99,7 @@ enum {
 enum {
 	NetSupported, NetWMName, NetWMState, NetWMCheck,
 	NetWMFullscreen, NetActiveWindow, NetWMWindowType,
+	NetWMIcon,
 	NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation,
 	NetSystemTrayVisual, NetWMWindowTypeDock, NetSystemTrayOrientationHorz,
 	NetClientList,
@@ -214,6 +215,8 @@ struct Client {
 	Client *swallowing;
 	Monitor *mon;
 	Window win;
+	unsigned int icw, ich;
+	Picture icon;
 };
 
 typedef struct {
@@ -345,7 +348,6 @@ static void setmfact(const Arg *arg);
 static void setup(void);
 static void seturgent(Client *c, int urg);
 static void showhide(Client *c);
-static void sigchld(int unused);
 static void spawn(const Arg *arg);
 static void tag(const Arg *arg);
 static void tagmon(const Arg *arg);
@@ -1446,6 +1448,7 @@ manage(Window w, XWindowAttributes *wa)
 	c->w = c->oldw = wa->width;
 	c->h = c->oldh = wa->height;
 	c->oldbw = wa->border_width;
+	updateicon(c);
 	updatetitle(c);
 
 
@@ -1704,6 +1707,11 @@ propertynotify(XEvent *e)
 		}
 		if (ev->atom == XA_WM_NAME || ev->atom == netatom[NetWMName]) {
 			updatetitle(c);
+			if (c == c->mon->sel)
+				drawbar(c->mon);
+		}
+		else if (ev->atom == netatom[NetWMIcon]) {
+			updateicon(c);
 			if (c == c->mon->sel)
 				drawbar(c->mon);
 		}
@@ -2075,9 +2083,16 @@ setup(void)
 	int i;
 	XSetWindowAttributes wa;
 	Atom utf8string;
+	struct sigaction sa;
 
-	/* clean up any zombies immediately */
-	sigchld(0);
+	/* do not transform children into zombies when they terminate */
+	sigemptyset(&sa.sa_mask);
+	sa.sa_flags = SA_NOCLDSTOP | SA_NOCLDWAIT | SA_RESTART;
+	sa.sa_handler = SIG_IGN;
+	sigaction(SIGCHLD, &sa, NULL);
+
+	/* clean up any zombies (inherited from .xinitrc etc) immediately */
+	while (waitpid(-1, NULL, WNOHANG) > 0);
 
 	signal(SIGHUP, sighup);
 	signal(SIGTERM, sigterm);
@@ -2113,6 +2128,7 @@ setup(void)
 	xatom[Manager] = XInternAtom(dpy, "MANAGER", False);
 	xatom[Xembed] = XInternAtom(dpy, "_XEMBED", False);
 	xatom[XembedInfo] = XInternAtom(dpy, "_XEMBED_INFO", False);
+	netatom[NetWMIcon] = XInternAtom(dpy, "_NET_WM_ICON", False);
 	netatom[NetWMName] = XInternAtom(dpy, "WM_CLASS", False);
 	netatom[NetWMState] = XInternAtom(dpy, "_NET_WM_STATE", False);
 	netatom[NetWMCheck] = XInternAtom(dpy, "_NET_SUPPORTING_WM_CHECK", False);
@@ -2201,13 +2217,6 @@ showhide(Client *c)
 	}
 }
 
-void
-sigchld(int unused)
-{
-	if (signal(SIGCHLD, sigchld) == SIG_ERR)
-		die("can't install SIGCHLD handler:");
-	while (0 < waitpid(-1, NULL, WNOHANG));
-}
 
 void
 spawn(const Arg *arg)
@@ -2378,6 +2387,7 @@ unmanage(Client *c, int destroyed)
 
 	detach(c);
 	detachstack(c);
+	freeicon(c);
 	if (!destroyed) {
 		wc.border_width = c->oldbw;
 		XGrabServer(dpy); /* avoid race conditions */

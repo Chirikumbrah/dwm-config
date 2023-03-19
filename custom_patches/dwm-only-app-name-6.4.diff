@@ -15,6 +15,7 @@ index c152916..8562c7d 100644
  	xatom[Manager] = XInternAtom(dpy, "MANAGER", False);
  	xatom[Xembed] = XInternAtom(dpy, "_XEMBED", False);
  	xatom[XembedInfo] = XInternAtom(dpy, "_XEMBED_INFO", False);
+	netatom[NetWMIcon] = XInternAtom(dpy, "_NET_WM_ICON", False);
 -	netatom[NetWMName] = XInternAtom(dpy, "_NET_WM_NAME", False);
 +	netatom[NetWMName] = XInternAtom(dpy, "WM_CLASS", False);
  	netatom[NetWMState] = XInternAtom(dpy, "_NET_WM_STATE", False);

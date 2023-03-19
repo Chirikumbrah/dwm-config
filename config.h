@@ -21,6 +21,10 @@ static const int statusmon               = -1;
 static const unsigned int systrayspacing = 5;   /* systray spacing */
 static const int showsystray             = 1;   /* 0 means no systray */
 
+/* icons */
+#define ICONSIZE 15    /* icon size */
+#define ICONSPACING 5  /* space between icon and title */
+
 /* Indicators: see patch/bar_indicators.h for options */
 static int tagindicatortype              = INDICATOR_NONE;
 static int tiledindicatortype            = INDICATOR_NONE;
@@ -368,10 +372,6 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_Tab,        shiftviewclients,       { .i = +1 } },
 	{ MODKEY|ShiftMask,               XK_Tab,        shiftviewclients,       { .i = -1 } },
 
-  // cycling layouts
-	{ Mod1Mask,                       XK_Tab,        cyclelayout,            {.i = +1 } },
-	{ Mod1Mask|ControlMask,           XK_Tab,        cyclelayout,            {.i = -1 } },
-
   // kill app
 	{ MODKEY,                         XK_x,          killclient,             {0} },
 
@@ -388,9 +388,8 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask,                XK_f,          setlayout,              {.v = &layouts[1]} },
   // set monocle layout
 	{ MODKEY|Mod1Mask,                XK_m,          setlayout,              {.v = &layouts[2]} },
-
   // changing layouts
-	{ MODKEY|Mod1Mask,                XK_p,          setlayout,              {0} },
+	{ Mod1Mask,                       XK_Tab,        setlayout,              {0} },
 
   // toggle fullscreen
   { MODKEY,                         XK_f,          fullscreen,             {0} },

@@ -18,6 +18,7 @@ draw_wintitle(Bar *bar, BarArg *a)
 	}
 
 	int tpad = lrpad / 2;
+	int ipad = c->icon ? c->icw + ICONSPACING : 0;
 	int tx = x;
 	int tw = w;
 
@@ -33,6 +34,11 @@ draw_wintitle(Bar *bar, BarArg *a)
 	tx += tpad;
 	tw -= lrpad;
 
+	if (ipad) {
+		drw_pic(drw, tx, a->y + (a->h - c->ich) / 2, c->icw, c->ich, c->icon);
+		tx += ipad;
+		tw -= ipad;
+	}
 
 	drw_text(drw, tx, a->y, tw, a->h, 0, c->name, 0, False);
 
