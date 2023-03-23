@@ -389,16 +389,16 @@ static const Key keys[] = {
   // set monocle layout
 	{ MODKEY|Mod1Mask,                XK_m,          setlayout,              {.v = &layouts[2]} },
   // changing layouts
-	{ Mod1Mask,                       XK_Tab,        setlayout,              {0} },
+	{ MODKEY|Mod1Mask,                XK_Tab,        setlayout,              {0} },
+
+  // floating mode for window
+	{ Mod1Mask,                       XK_Tab,        togglefloating,         {0} },
 
   // toggle fullscreen
   { MODKEY,                         XK_f,          fullscreen,             {0} },
 
   // toggle sticky mode
 	{ MODKEY,                         XK_s,          togglesticky,           {0} },
-
-  // floating mode for window
-	{ MODKEY|ControlMask,             XK_f,          togglefloating,         {0} },
 
   // scratchpads
 	{ MODKEY|ShiftMask,               XK_Return,     togglescratch,          {.ui = 0 } }, // terminal
@@ -470,7 +470,7 @@ static const Key keys[] = {
 	{ 0,                     XK_Caps_Lock,             	spawn,	SHCMD("xdotool key Caps_Lock && pkill -RTMIN+5 dwmblocks"                ) },
 
 	// bluetooth indicator
-	{ 0,                     XF86XK_Bluetooth,         	spawn,	SHCMD("pkill -RTMIN+7 dwmblocks"                                         ) },
+	// { 0,                     XF86XK_Bluetooth,         	spawn,	SHCMD("pkill -RTMIN+7 dwmblocks"                                         ) },
 };
 
 
