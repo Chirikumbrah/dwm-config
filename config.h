@@ -107,29 +107,34 @@ static char *colors[][ColCount] = {
 #define IMG_VIEWER "qimgv"
 #define PDF_VIEWER "qpdfview"
 
-const char *spcmd1[]  = {"alacritty",          "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
-const char *spcmd2[]  = {"keepassxc",          NULL };
-const char *spcmd3[]  = {"audacious",          NULL };
-const char *spcmd4[]  = {"galculator",         NULL };
-const char *spcmd5[]  = {"alacritty",          "--class", "calcurse,calcurse", "-e", "calcurse",     NULL };
-const char *spcmd6[]  = {IMG_VIEWER,           NULL };
-const char *spcmd7[]  = {"alacritty",          "--class", "nmtui,nmtui",       "-e", "nmtui",        NULL };
-const char *spcmd8[]  = {"alacritty",          "--class", "btctl,btctl",       "-e", "bluetoothctl", NULL };
-const char *spcmd9[]  = {PDF_VIEWER,           NULL };
-const char *spcmd10[] = {"telegram-desktop",   NULL };
+const char *spcmd1[]  = {"alacritty",             "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
+const char *spcmd2[]  = {"keepassxc",             NULL };
+const char *spcmd3[]  = {"audacious",             NULL };
+const char *spcmd4[]  = {"galculator",            NULL };
+// const char *spcmd5[]  = {"alacritty",          "--class", "calcurse,calcurse", "-e", "calcurse",     NULL };
+const char *spcmd5[]  = {"orage",                 NULL };
+const char *spcmd6[]  = {IMG_VIEWER,              NULL };
+// const char *spcmd7[]  = {"alacritty",          "--class", "nmtui,nmtui",       "-e", "nmtui",        NULL };
+// const char *spcmd8[]  = {"alacritty",          "--class", "btctl,btctl",       "-e", "bluetoothctl", NULL };
+const char *spcmd7[]  = {"nm-connection-editor",  NULL };
+const char *spcmd8[]  = {"blueman-manager",       NULL };
+const char *spcmd9[]  = {PDF_VIEWER,              NULL };
+const char *spcmd10[] = {"telegram-desktop",      NULL };
 
 static Sp scratchpads[] = {
-   /* name              cmd  */
-   {"spterm",     spcmd1},
-   {"keepassxc",  spcmd2},
-   {"audacious",  spcmd3},
-   {"galculator", spcmd4},
-   {"calcurse",   spcmd5},
-   {IMG_VIEWER,   spcmd6},
-   {"nmtui",      spcmd7},
-   {"btctl",      spcmd8},
-   {PDF_VIEWER,   spcmd9},
-   {"telegram",   spcmd10},
+   /* name                   cmd  */
+   {"spterm",               spcmd1},
+   {"keepassxc",            spcmd2},
+   {"audacious",            spcmd3},
+   {"galculator",           spcmd4},
+   // {"calcurse",          spcmd5},
+   {"orage",                spcmd5},
+   {IMG_VIEWER,             spcmd6},
+   {"nm-connection-editor", spcmd7},
+   // {"btctl",             spcmd8},
+   {"blueman-manager",      spcmd8},
+   {PDF_VIEWER,             spcmd9},
+   {"telegram",             spcmd10},
 };
 
 /* Tags
@@ -203,10 +208,13 @@ static const Rule rules[] = {
 	RULE(.class = "KeePassXC",                   .tags = SPTAG(1), .isfloating = 1)
 	RULE(.class = "Audacious",                   .tags = SPTAG(2), .isfloating = 1)
 	RULE(.class = "Galculator",                  .tags = SPTAG(3), .isfloating = 1)
-	RULE(.class = "calcurse",                    .tags = SPTAG(4), .isfloating = 1)
+	// RULE(.class = "calcurse",                    .tags = SPTAG(4), .isfloating = 1)
+	RULE(.class = "Orage",                       .tags = SPTAG(4), .isfloating = 1)
 	RULE(.class = IMG_VIEWER,                    .tags = SPTAG(5), .isfloating = 1)
-	RULE(.class = "nmtui",                       .tags = SPTAG(6), .isfloating = 1)
-	RULE(.class = "btctl",                       .tags = SPTAG(7), .isfloating = 1)
+	// RULE(.class = "nmtui",                       .tags = SPTAG(6), .isfloating = 1)
+	// RULE(.class = "btctl",                       .tags = SPTAG(7), .isfloating = 1)
+	RULE(.class = "Nm-connection-editor",        .tags = SPTAG(6), .isfloating = 1)
+	RULE(.class = "blueman-manager",             .tags = SPTAG(7), .isfloating = 1)
 	RULE(.class = PDF_VIEWER,                    .tags = SPTAG(8), .isfloating = 1)
 	RULE(.class = "Telegram",                    .tags = SPTAG(9), .isfloating = 1)
 
@@ -217,7 +225,7 @@ static const Rule rules[] = {
 	RULE(.class = "ffplay",                      .isfloating = 1)
 	RULE(.class = "QjackCtl",                    .isfloating = 1)
 	RULE(.class = "Blueman-manager",             .isfloating = 1)
-	RULE(.class = "Nm-connection-editor",        .isfloating = 1)
+	// RULE(.class = "Nm-connection-editor",        .isfloating = 1)
 
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
