@@ -394,10 +394,10 @@ static const Key keys[] = {
   // set monocle layout
 	{ MODKEY|Mod1Mask,                XK_m,          setlayout,              {.v = &layouts[2]} },
   // changing layouts
-	{ MODKEY|Mod1Mask,                XK_Tab,        setlayout,              {0} },
+	{ Mod1Mask,                       XK_Tab,        setlayout,              {0} },
 
   // floating mode for window
-	{ Mod1Mask,                       XK_Tab,        togglefloating,         {0} },
+	{ MODKEY,                         XK_Tab,        togglefloating,         {0} },
 
   // toggle fullscreen
   { MODKEY,                         XK_f,          fullscreen,             {0} },
