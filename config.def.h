@@ -290,6 +290,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_grave,      togglescratch,          {.ui = 0 } },
 	{ MODKEY|ControlMask,           XK_grave,      setscratch,             {.ui = 0 } },
 	{ MODKEY|ShiftMask,             XK_grave,      removescratch,          {.ui = 0 } },
+	{ MODKEY,                       XK_y,          togglefullscreen,       {0} },
 	{ MODKEY|ShiftMask,             XK_f,          fullscreen,             {0} },
 	{ MODKEY|ShiftMask,             XK_s,          togglesticky,           {0} },
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~SPTAGMASK } },

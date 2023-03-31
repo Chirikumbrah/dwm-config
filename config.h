@@ -400,7 +400,8 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_Tab,        togglefloating,         {0} },
 
   // toggle fullscreen
-  { MODKEY,                         XK_f,          fullscreen,             {0} },
+  // { MODKEY,                         XK_f,          fullscreen,             {0} },
+	{ MODKEY,                       XK_f,          togglefullscreen,       {0} },
 
   // toggle sticky mode
 	{ MODKEY,                         XK_s,          togglesticky,           {0} },

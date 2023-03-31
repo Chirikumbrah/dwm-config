@@ -32,6 +32,7 @@
 #include "stacker.c"
 #include "sticky.c"
 #include "swallow.c"
+#include "togglefullscreen.c"
 #include "vanitygaps.c"
 #include "xrdb.c"
 /* Layouts */
