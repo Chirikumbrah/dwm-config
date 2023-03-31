@@ -374,8 +374,8 @@ static const Key keys[] = {
 	{ Mod1Mask,                       XK_3,          explace,                {.ui = EX_SE }},   /* XK_KP_Next,  */
 
   // cycling tags
-	{ MODKEY,                         XK_Tab,        shiftviewclients,       { .i = +1 } },
-	{ MODKEY|ShiftMask,               XK_Tab,        shiftviewclients,       { .i = -1 } },
+	{ MODKEY,                         XK_Next,       shiftviewclients,       { .i = +1 } },
+	{ MODKEY,                         XK_Prior,      shiftviewclients,       { .i = -1 } },
 
   // kill app
 	{ MODKEY,                         XK_x,          killclient,             {0} },
