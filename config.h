@@ -111,15 +111,13 @@ const char *spcmd1[]  = {"alacritty",             "--class", "spterm,spterm", "-
 const char *spcmd2[]  = {"keepassxc",             NULL };
 const char *spcmd3[]  = {"audacious",             NULL };
 const char *spcmd4[]  = {"galculator",            NULL };
-// const char *spcmd5[]  = {"alacritty",          "--class", "calcurse,calcurse", "-e", "calcurse",     NULL };
 const char *spcmd5[]  = {"orage",                 NULL };
 const char *spcmd6[]  = {IMG_VIEWER,              NULL };
-// const char *spcmd7[]  = {"alacritty",          "--class", "nmtui,nmtui",       "-e", "nmtui",        NULL };
-// const char *spcmd8[]  = {"alacritty",          "--class", "btctl,btctl",       "-e", "bluetoothctl", NULL };
 const char *spcmd7[]  = {"nm-connection-editor",  NULL };
 const char *spcmd8[]  = {"blueman-manager",       NULL };
 const char *spcmd9[]  = {PDF_VIEWER,              NULL };
 const char *spcmd10[] = {"telegram-desktop",      NULL };
+const char *spcmd11[] = {"pcmanfm-qt",            NULL };
 
 static Sp scratchpads[] = {
    /* name                   cmd  */
@@ -127,14 +125,13 @@ static Sp scratchpads[] = {
    {"keepassxc",            spcmd2},
    {"audacious",            spcmd3},
    {"galculator",           spcmd4},
-   // {"calcurse",          spcmd5},
    {"orage",                spcmd5},
    {IMG_VIEWER,             spcmd6},
    {"nm-connection-editor", spcmd7},
-   // {"btctl",             spcmd8},
    {"blueman-manager",      spcmd8},
    {PDF_VIEWER,             spcmd9},
    {"telegram",             spcmd10},
+   {"pcmanfm-qt",           spcmd11},
 };
 
 /* Tags
@@ -204,19 +201,20 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "SPLASH",              .isfloating = 1)
     
   // scratchpads
-	RULE(.class = "spterm",                      .tags = SPTAG(0), .isfloating = 1)
-	RULE(.class = "KeePassXC",                   .tags = SPTAG(1), .isfloating = 1)
-	RULE(.class = "Audacious",                   .tags = SPTAG(2), .isfloating = 1)
-	RULE(.class = "Galculator",                  .tags = SPTAG(3), .isfloating = 1)
-	// RULE(.class = "calcurse",                    .tags = SPTAG(4), .isfloating = 1)
-	RULE(.class = "Orage",                       .tags = SPTAG(4), .isfloating = 1)
-	RULE(.class = IMG_VIEWER,                    .tags = SPTAG(5), .isfloating = 1)
-	// RULE(.class = "nmtui",                       .tags = SPTAG(6), .isfloating = 1)
-	// RULE(.class = "btctl",                       .tags = SPTAG(7), .isfloating = 1)
-	RULE(.class = "Nm-connection-editor",        .tags = SPTAG(6), .isfloating = 1)
-	RULE(.class = "blueman-manager",             .tags = SPTAG(7), .isfloating = 1)
-	RULE(.class = PDF_VIEWER,                    .tags = SPTAG(8), .isfloating = 1)
-	RULE(.class = "Telegram",                    .tags = SPTAG(9), .isfloating = 1)
+	RULE(.class = "spterm",                      .tags = SPTAG(0),  .isfloating = 1)
+	RULE(.class = "KeePassXC",                   .tags = SPTAG(1),  .isfloating = 1)
+	RULE(.class = "Audacious",                   .tags = SPTAG(2),  .isfloating = 1)
+	RULE(.class = "Galculator",                  .tags = SPTAG(3),  .isfloating = 1)
+	// RULE(.class = "calcurse",                    .tags = SPTAG(4),  .isfloating = 1)
+	RULE(.class = "Orage",                       .tags = SPTAG(4),  .isfloating = 1)
+	RULE(.class = IMG_VIEWER,                    .tags = SPTAG(5),  .isfloating = 1)
+	// RULE(.class = "nmtui",                       .tags = SPTAG(6),  .isfloating = 1)
+	// RULE(.class = "btctl",                       .tags = SPTAG(7),  .isfloating = 1)
+	RULE(.class = "Nm-connection-editor",        .tags = SPTAG(6),  .isfloating = 1)
+	RULE(.class = "blueman-manager",             .tags = SPTAG(7),  .isfloating = 1)
+	RULE(.class = PDF_VIEWER,                    .tags = SPTAG(8),  .isfloating = 1)
+	RULE(.class = "Telegram",                    .tags = SPTAG(9),  .isfloating = 1)
+	RULE(.class = "pcmanfm-qt",                  .tags = SPTAG(10), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",                         .isfloating = 1)
@@ -239,7 +237,6 @@ static const Rule rules[] = {
   // THIRD
 	RULE(.class = "ranger",                      .tags = 1 << 2)
 	RULE(.class = "lf",                          .tags = 1 << 2)
-	RULE(.class = "pcmanfm-qt",                  .tags = 1 << 2)
 	RULE(.class = "Localsend_app",               .tags = 1 << 2)
 	RULE(.class = "qBittorrent",                 .tags = 1 << 2)
   // FOURTH
@@ -409,16 +406,17 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_s,          togglesticky,           {0} },
 
   // scratchpads
-	{ MODKEY|ShiftMask,               XK_Return,     togglescratch,          {.ui = 0 } }, // terminal
-	{ MODKEY|ShiftMask,               XK_p,          togglescratch,          {.ui = 1 } }, // keepass
-	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2 } }, // music player
-	{ MODKEY|ShiftMask,               XK_g,          togglescratch,          {.ui = 3 } }, // galculator
-	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4 } }, // calendar
-	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5 } }, // IMG_VIEWER
-	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6 } }, // nmtui
-	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 7 } }, // btctl
-	{ MODKEY|ShiftMask,               XK_d,          togglescratch,          {.ui = 8 } }, // PDF_VIEWER
-	{ MODKEY|ShiftMask,               XK_t,          togglescratch,          {.ui = 9 } }, // telegram
+	{ MODKEY|ShiftMask,               XK_Return,     togglescratch,          {.ui = 0  } }, // terminal
+	{ MODKEY|ShiftMask,               XK_p,          togglescratch,          {.ui = 1  } }, // keepass
+	{ MODKEY|ShiftMask,               XK_m,          togglescratch,          {.ui = 2  } }, // music player
+	{ MODKEY|ShiftMask,               XK_g,          togglescratch,          {.ui = 3  } }, // galculator
+	{ MODKEY|ShiftMask,               XK_c,          togglescratch,          {.ui = 4  } }, // calendar
+	{ MODKEY|ShiftMask,               XK_i,          togglescratch,          {.ui = 5  } }, // IMG_VIEWER
+	{ MODKEY|ShiftMask,               XK_n,          togglescratch,          {.ui = 6  } }, // nmtui
+	{ MODKEY|ShiftMask,               XK_b,          togglescratch,          {.ui = 7  } }, // btctl
+	{ MODKEY|ShiftMask,               XK_d,          togglescratch,          {.ui = 8  } }, // PDF_VIEWER
+	{ MODKEY|ShiftMask,               XK_t,          togglescratch,          {.ui = 9  } }, // telegram
+	{ MODKEY|ShiftMask,               XK_f,          togglescratch,          {.ui = 10 } }, // pcmanfm-qt
 
 	{ MODKEY,                         XK_0,          view,                   {.ui = ~SPTAGMASK } },
 	{ MODKEY|ShiftMask,               XK_0,          tag,                    {.ui = ~SPTAGMASK } },
@@ -452,7 +450,6 @@ static const Key keys[] = {
 
   // gui apps
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
-  { MODKEY|ShiftMask,     XK_f,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh pcmanfm-qt")                             },
 
 	// flatpak apps
 	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD("flatpak run net.cozic.joplin_desktop")                              },
