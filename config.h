@@ -442,9 +442,9 @@ static const Key keys[] = {
 
 
   // dmenu 
-	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh apps")                               },
-	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh powermenu")                          },
-	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "dmenu/dmenu-scripts.sh clipmenu")                           },
+	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "system/dmenu-scripts.sh apps")                               },
+	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "system/dmenu-scripts.sh powermenu")                          },
+	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "system/dmenu-scripts.sh clipmenu")                           },
 
   // console apps
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                           },
