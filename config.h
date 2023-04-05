@@ -118,6 +118,7 @@ const char *spcmd8[]  = {"blueman-manager",       NULL };
 const char *spcmd9[]  = {PDF_VIEWER,              NULL };
 const char *spcmd10[] = {"telegram-desktop",      NULL };
 const char *spcmd11[] = {"pcmanfm-qt",            NULL };
+const char *spcmd12[] = {"element-desktop",       NULL };
 
 static Sp scratchpads[] = {
    /* name                   cmd  */
@@ -132,6 +133,7 @@ static Sp scratchpads[] = {
    {PDF_VIEWER,             spcmd9},
    {"telegram",             spcmd10},
    {"pcmanfm-qt",           spcmd11},
+   {"element-desktop",      spcmd12},
 };
 
 /* Tags
@@ -215,6 +217,7 @@ static const Rule rules[] = {
 	RULE(.class = PDF_VIEWER,                    .tags = SPTAG(8),  .isfloating = 1)
 	RULE(.class = "Telegram",                    .tags = SPTAG(9),  .isfloating = 1)
 	RULE(.class = "pcmanfm-qt",                  .tags = SPTAG(10), .isfloating = 1)
+	RULE(.class = "Element",                     .tags = SPTAG(11), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",                         .isfloating = 1)
@@ -418,6 +421,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_d,          togglescratch,          {.ui = 8  } }, // PDF_VIEWER
 	{ MODKEY|ShiftMask,               XK_t,          togglescratch,          {.ui = 9  } }, // telegram
 	{ MODKEY|ShiftMask,               XK_f,          togglescratch,          {.ui = 10 } }, // pcmanfm-qt
+	{ MODKEY|ShiftMask,               XK_e,          togglescratch,          {.ui = 11 } }, // pcmanfm-qt
 
 	{ MODKEY,                         XK_0,          view,                   {.ui = ~SPTAGMASK } },
 	{ MODKEY|ShiftMask,               XK_0,          tag,                    {.ui = ~SPTAGMASK } },

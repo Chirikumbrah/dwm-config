@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/Chirikumbrah/dwm/blob/master/screenshot.png)
+![Screenshot](https://notabug.org/Chirikumbrah/dwm/raw/master/screenshot.png)
 
 dwm - dynamic window manager
 ============================
