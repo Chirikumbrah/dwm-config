@@ -226,7 +226,7 @@ static const Rule rules[] = {
 	RULE(.class = "ffplay",                      .isfloating = 1)
 	RULE(.class = "QjackCtl",                    .isfloating = 1)
 	RULE(.class = "Blueman-manager",             .isfloating = 1)
-	// RULE(.class = "Nm-connection-editor",        .isfloating = 1)
+	RULE(.class = "FeatherPad",                  .isfloating = 1)
 
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
