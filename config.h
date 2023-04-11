@@ -454,8 +454,7 @@ static const Key keys[] = {
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                           },
 
   // gui apps
-  // { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
-  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh firefox")                               },
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
 
 	// flatpak apps
 	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD("flatpak run net.cozic.joplin_desktop")                              },
