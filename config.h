@@ -447,18 +447,18 @@ static const Key keys[] = {
 
 
   // dmenu 
-	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "system/dmenu-scripts.sh apps")                               },
-	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "system/dmenu-scripts.sh powermenu")                          },
-	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "system/dmenu-scripts.sh clipmenu")                           },
+	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "system/dmenu-scripts.sh apps")                              },
+	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "system/dmenu-scripts.sh powermenu")                         },
+	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "system/dmenu-scripts.sh clipmenu")                          },
 
   // console apps
-  { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                           },
+  { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                               },
 
   // gui apps
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
 
 	// flatpak apps
-	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD("flatpak run net.cozic.joplin_desktop")                              },
+	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh Joplin")                                 },
 	
 
   // take screenshot
