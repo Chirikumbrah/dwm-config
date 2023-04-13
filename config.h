@@ -233,6 +233,7 @@ static const Rule rules[] = {
 	RULE(.class = "Thorium-browser-unstable",    .tags = 1)
 	RULE(.class = "qutebrowser",                 .tags = 1)
 	RULE(.class = "Firefox",                     .tags = 1)
+	RULE(.class = "librewolf",                   .tags = 1)
 	RULE(.class = "Vieb",                        .tags = 1)
   // SECOND
 	RULE(.class = "Alacritty",                   .tags = 1 << 1)
