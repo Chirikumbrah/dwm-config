@@ -40,12 +40,13 @@ static const char dmenufont[]            = "DejaVuSansMono:size=10";
 #define YELLOW     "#f1fa8c"
 #define WHITE      "#f8f8f2"
 #define RED        "#ff5555"
+#define COMMENT    "#6272a4"
 
 // window
 static char normfgcolor[]                = PURPLE;
 static char normbgcolor[]                = DARK;
-static char normbordercolor[]            = PURPLE;
-static char normfloatcolor[]             = PURPLE;
+static char normbordercolor[]            = COMMENT;
+static char normfloatcolor[]             = COMMENT;
 
 static char selfgcolor[]                 = DARK;
 static char selbgcolor[]                 = PURPLE;
@@ -53,7 +54,7 @@ static char selbordercolor[]             = GREEN;
 static char selfloatcolor[]              = GREEN;
 
 // title
-static char titlenormfgcolor[]           = PURPLE;
+static char titlenormfgcolor[]           = COMMENT;
 static char titlenormbgcolor[]           = DARK;
 static char titlenormbordercolor[]       = PURPLE;
 static char titlenormfloatcolor[]        = PURPLE;
@@ -75,7 +76,7 @@ static char tagsselbordercolor[]         = GREEN;
 static char tagsselfloatcolor[]          = GREEN;
 
 // hidden
-static char hidnormfgcolor[]             = "#6272a4";
+static char hidnormfgcolor[]             = COMMENT;
 static char hidnormbgcolor[]             = DARK;
 static char hidselfgcolor[]              = PURPLE;
 static char hidselbgcolor[]              = DARK;
