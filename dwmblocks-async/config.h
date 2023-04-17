@@ -5,8 +5,8 @@
 
 const Block blocks[] = {
 	// BLOCK(scriptDir "xbps-updates.sh",      333,     0),
-	// BLOCK(SCRIPTS "vol-dwm.sh",           10,      1),
-	// BLOCK(SCRIPTS "mic-dwm.sh",           10,      2),
+	BLOCK(SCRIPTS "vol-dwm.sh",           10,      1),
+	BLOCK(SCRIPTS "mic-dwm.sh",           10,      2),
 	// BLOCK(SCRIPTS "backlight.sh",         0,       3),
 	BLOCK(SCRIPTS "cputemp.sh",           5,       0),
 	BLOCK(SCRIPTS "ram.sh",               5,       0),
