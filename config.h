@@ -120,6 +120,7 @@ const char *spcmd9[]  = {PDF_VIEWER,              NULL };
 const char *spcmd10[] = {"telegram-desktop",      NULL };
 const char *spcmd11[] = {"pcmanfm-qt",            NULL };
 const char *spcmd12[] = {"element-desktop",       NULL };
+const char *spcmd13[] = {"pavucontrol-qt",        NULL };
 
 static Sp scratchpads[] = {
    /* name                   cmd  */
@@ -135,6 +136,7 @@ static Sp scratchpads[] = {
    {"telegram",             spcmd10},
    {"pcmanfm-qt",           spcmd11},
    {"element-desktop",      spcmd12},
+   {"pavucontrol-qt",       spcmd13},
 };
 
 /* Tags
@@ -208,17 +210,15 @@ static const Rule rules[] = {
 	RULE(.class = "KeePassXC",                   .tags = SPTAG(1),  .isfloating = 1)
 	RULE(.class = "Audacious",                   .tags = SPTAG(2),  .isfloating = 1)
 	RULE(.class = "Galculator",                  .tags = SPTAG(3),  .isfloating = 1)
-	// RULE(.class = "calcurse",                    .tags = SPTAG(4),  .isfloating = 1)
 	RULE(.class = "Orage",                       .tags = SPTAG(4),  .isfloating = 1)
 	RULE(.class = IMG_VIEWER,                    .tags = SPTAG(5),  .isfloating = 1)
-	// RULE(.class = "nmtui",                       .tags = SPTAG(6),  .isfloating = 1)
-	// RULE(.class = "btctl",                       .tags = SPTAG(7),  .isfloating = 1)
 	RULE(.class = "Nm-connection-editor",        .tags = SPTAG(6),  .isfloating = 1)
 	RULE(.class = "blueman-manager",             .tags = SPTAG(7),  .isfloating = 1)
 	RULE(.class = PDF_VIEWER,                    .tags = SPTAG(8),  .isfloating = 1)
 	RULE(.class = "Telegram",                    .tags = SPTAG(9),  .isfloating = 1)
 	RULE(.class = "pcmanfm-qt",                  .tags = SPTAG(10), .isfloating = 1)
 	RULE(.class = "Element",                     .tags = SPTAG(11), .isfloating = 1)
+	RULE(.class = "Pavucontrol-qt",              .tags = SPTAG(12), .isfloating = 1)
 
   // floating windows
 	RULE(.class = "feh",                         .isfloating = 1)
@@ -229,7 +229,6 @@ static const Rule rules[] = {
 	RULE(.class = "Blueman-manager",             .isfloating = 1)
 	RULE(.class = "FeatherPad",                  .isfloating = 1)
 	RULE(.class = "Nitrogen",                    .isfloating = 1)
-	RULE(.class = "Pavucontrol",                 .isfloating = 1)
 
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
@@ -243,7 +242,6 @@ static const Rule rules[] = {
 	RULE(.class = "st",                          .tags = 1 << 1)
   // THIRD
 	RULE(.class = "ranger",                      .tags = 1 << 2)
-	RULE(.class = "lf",                          .tags = 1 << 2)
 	RULE(.class = "Localsend_app",               .tags = 1 << 2)
 	RULE(.class = "qBittorrent",                 .tags = 1 << 2)
   // FOURTH
@@ -408,7 +406,6 @@ static const Key keys[] = {
 	{ MODKEY,                         XK_Tab,        togglefloating,         {0} },
 
   // toggle fullscreen
-  // { MODKEY,                         XK_f,          fullscreen,             {0} },
 	{ MODKEY,                       XK_f,          togglefullscreen,       {0} },
 
   // toggle sticky mode
@@ -426,7 +423,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,               XK_d,          togglescratch,          {.ui = 8  } }, // PDF_VIEWER
 	{ MODKEY|ShiftMask,               XK_t,          togglescratch,          {.ui = 9  } }, // telegram
 	{ MODKEY|ShiftMask,               XK_f,          togglescratch,          {.ui = 10 } }, // pcmanfm-qt
-	{ MODKEY|ShiftMask,               XK_e,          togglescratch,          {.ui = 11 } }, // pcmanfm-qt
+	{ MODKEY|ShiftMask,               XK_e,          togglescratch,          {.ui = 11 } }, // Element
+	{ MODKEY|ShiftMask,               XK_v,          togglescratch,          {.ui = 12 } }, // pavucontrol-qt
 
 	{ MODKEY,                         XK_0,          view,                   {.ui = ~SPTAGMASK } },
 	{ MODKEY|ShiftMask,               XK_0,          tag,                    {.ui = ~SPTAGMASK } },
@@ -460,9 +458,8 @@ static const Key keys[] = {
 
   // gui apps
   { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
-
-	// flatpak apps
 	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh Joplin")                                 },
+
 	
 
   // take screenshot
