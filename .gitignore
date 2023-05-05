@@ -6,3 +6,6 @@ dwm
 
 # ignore all backed up files
 *.orig
+
+# ignore default dwm README
+README

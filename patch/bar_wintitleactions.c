@@ -80,6 +80,7 @@ showhideclient(const Arg *arg)
 	if (!c)
 		return;
 
+	force_warp = 1;
 	if (HIDDEN(c)) {
 		show(c);
 		focus(c);

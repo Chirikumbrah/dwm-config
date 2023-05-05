@@ -34,6 +34,7 @@
 #include "swallow.h"
 #include "togglefullscreen.h"
 #include "vanitygaps.h"
+#include "warp.h"
 #include "xrdb.h"
 /* Layouts */
 #include "layout_monocle.h"

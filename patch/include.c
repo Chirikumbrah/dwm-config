@@ -34,6 +34,7 @@
 #include "swallow.c"
 #include "togglefullscreen.c"
 #include "vanitygaps.c"
+#include "warp.c"
 #include "xrdb.c"
 /* Layouts */
 #include "layout_facts.c"
