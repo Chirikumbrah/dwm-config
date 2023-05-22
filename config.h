@@ -229,6 +229,7 @@ static const Rule rules[] = {
 	RULE(.class = "Blueman-manager",             .isfloating = 1)
 	RULE(.class = "FeatherPad",                  .isfloating = 1)
 	RULE(.class = "Nitrogen",                    .isfloating = 1)
+	RULE(.class = "BleachBit",                   .isfloating = 1)
 
   // FIRST
 	RULE(.class = "Chromium",                    .tags = 1)
