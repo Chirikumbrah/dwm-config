@@ -1,14 +1,8 @@
 # ignore all object files
 *.o
 
-# ignore dwm executable
-dwm
-
 # ignore dwmblocks executable
 dwmblocks
 
 # ignore all backed up files
 *.orig
-
-# ignore default dwm README
-README
