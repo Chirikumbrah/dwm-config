@@ -251,6 +251,7 @@ static const Rule rules[] = {
 	RULE(.class = "Slack",                       .tags = 1 << 3)
   // FIFTH
 	RULE(.class = "Code",                        .tags = 1 << 4)
+	RULE(.class = "Emacs",                       .tags = 1 << 4)
 	RULE(.class = "jetbrains-pycharm-ce",        .tags = 1 << 4)
 	RULE(.class = "Lens",                        .tags = 1 << 4)
 	RULE(.class = "Notesnook",                   .tags = 1 << 4)
