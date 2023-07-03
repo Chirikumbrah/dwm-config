@@ -107,6 +107,7 @@ static char *colors[][ColCount] = {
 // User apps
 #define IMG_VIEWER "qimgv"
 #define PDF_VIEWER "qpdfview"
+#define EXPLORER "thunar"
 
 const char *spcmd1[]  = {"alacritty",             "--class", "spterm,spterm", "--config-file", "/home/yr/.config/alacritty/alacritty-scrathcpad.yml", NULL };
 const char *spcmd2[]  = {"keepassxc",             NULL };
@@ -118,7 +119,7 @@ const char *spcmd7[]  = {"nm-connection-editor",  NULL };
 const char *spcmd8[]  = {"blueman-manager",       NULL };
 const char *spcmd9[]  = {PDF_VIEWER,              NULL };
 const char *spcmd10[] = {"telegram-desktop",      NULL };
-const char *spcmd11[] = {"pcmanfm-qt",            NULL };
+const char *spcmd11[] = {EXPLORER,                NULL };
 const char *spcmd12[] = {"element-desktop",       NULL };
 const char *spcmd13[] = {"pavucontrol-qt",        NULL };
 
@@ -134,7 +135,7 @@ static Sp scratchpads[] = {
    {"blueman-manager",      spcmd8},
    {PDF_VIEWER,             spcmd9},
    {"telegram",             spcmd10},
-   {"pcmanfm-qt",           spcmd11},
+   {EXPLORER,               spcmd11},
    {"element-desktop",      spcmd12},
    {"pavucontrol-qt",       spcmd13},
 };
@@ -216,6 +217,7 @@ static const Rule rules[] = {
 	RULE(.class = "blueman-manager",             .tags = SPTAG(7),  .isfloating = 1)
 	RULE(.class = PDF_VIEWER,                    .tags = SPTAG(8),  .isfloating = 1)
 	RULE(.class = "Telegram",                    .tags = SPTAG(9),  .isfloating = 1)
+	RULE(.class = "Thunar",                      .tags = SPTAG(10), .isfloating = 1)
 	RULE(.class = "pcmanfm-qt",                  .tags = SPTAG(10), .isfloating = 1)
 	RULE(.class = "Element",                     .tags = SPTAG(11), .isfloating = 1)
 	RULE(.class = "Pavucontrol-qt",              .tags = SPTAG(12), .isfloating = 1)
@@ -452,22 +454,22 @@ static const Key keys[] = {
 
 
   // dmenu 
-	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "system/dmenu-scripts.sh apps")                              },
-	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "system/dmenu-scripts.sh powermenu")                         },
-	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "system/dmenu-scripts.sh clipmenu")                          },
+	{ MODKEY,               XK_space,                   spawn,  SHCMD(SCRIPTS "system/xorg/dmenu-scripts.sh apps")                              },
+	{ Mod1Mask,             XK_x,                       spawn,	SHCMD(SCRIPTS "system/xorg/dmenu-scripts.sh powermenu")                         },
+	{ Mod1Mask,             XK_space,                   spawn,	SHCMD(SCRIPTS "system/xorg/dmenu-scripts.sh clipmenu")                          },
 
   // console apps
   { MODKEY,               XK_Escape,                  spawn,	SHCMD("alacritty --class htop,htop -e htop")                               },
 
   // gui apps
-  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh chromium")                               },
-	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD(SCRIPTS "system/find-app.sh Joplin")                                 },
+  { MODKEY|ShiftMask,     XK_w,                       spawn,	SHCMD(SCRIPTS "system/xorg/find-app.sh chromium")                               },
+	{ MODKEY|ShiftMask,     XK_j,                       spawn,	SHCMD(SCRIPTS "system/xorg/find-app.sh Joplin")                                 },
 
 	
 
   // take screenshot
-  { 0,                     XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh --partial")                       },
-  { MODKEY,                XK_Print,                  spawn,	SHCMD(SCRIPTS "system/take-screenshot.sh --full")                          },
+  { 0,                     XK_Print,                  spawn,	SHCMD(SCRIPTS "system/xorg/take-screenshot.sh --partial")                       },
+  { MODKEY,                XK_Print,                  spawn,	SHCMD(SCRIPTS "system/xorg/take-screenshot.sh --full")                          },
 
 	// audio controls
 	{ 0,                     XF86XK_AudioRaiseVolume,   spawn,	SHCMD(SCRIPTS "system/control-volume.sh up   && pkill -RTMIN+1 dwmblocks") },
@@ -476,8 +478,8 @@ static const Key keys[] = {
 	{ 0,                     XF86XK_AudioMicMute,      	spawn,	SHCMD(SCRIPTS "system/control-volume.sh mic  && pkill -RTMIN+2 dwmblocks") },
 
   // brightness controls
-  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
-  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
+  { 0,                     XF86XK_MonBrightnessUp,    spawn,	SHCMD(SCRIPTS "system/xorg/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
+  { 0,                     XF86XK_MonBrightnessDown, 	spawn,	SHCMD(SCRIPTS "system/xorg/get-brightness.sh      && pkill -RTMIN+3 dwmblocks") },
 
   // changing keyboard layout
 	{ Mod1Mask,              XK_Shift_L,               	spawn,	SHCMD("pkill -RTMIN+5 dwmblocks"                                         ) },
