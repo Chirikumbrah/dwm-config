@@ -5,7 +5,7 @@
 dwm
 
 # ignore dwmblocks executable
-dwmblocks
+dwmblocks-async/dwmblocks
 
 # ignore all backed up files
 *.orig
